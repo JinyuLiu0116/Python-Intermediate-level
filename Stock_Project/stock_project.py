@@ -14,8 +14,8 @@ engine = sqlalchemy.create_engine(dburl)
 
 ticker='WFC'
 
-class getData(beam.DoFn):
-    def process(self,ticker):
+class getData(beam.DoFn): # getData class inhernc from beam.DoFn
+    def process(self,ticker): # check date for getting new data
         now=datetime.now()
         dataQuery='SELECT MAX(Date) FROM stock_data WHERE symbol=%s'
         newData=pd.read_sql(dataQuery,engine,params=[ticker]).value[0][0]
@@ -23,7 +23,7 @@ class getData(beam.DoFn):
             newData='2024-01-02'
         
         stock_data=yf.download(ticker,start=newData,end=now)
-        for Date, row in stock_data.iterrows():
+        for Date, row in stock_data.iterrows(): #format data to 3 decimal plays
             yield{
                 'symbol':ticker,
                 'Date':Date,

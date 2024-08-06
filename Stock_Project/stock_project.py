@@ -8,7 +8,6 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.sensors.time_sensor import TimeSensor
 from airflow.sensors.weekday import DayOfWeekSensor
-import os
 
 dburl='mysql+pymysql://root:8551649@localhost:3306/stock_data'
 engine = sqlalchemy.create_engine(dburl)

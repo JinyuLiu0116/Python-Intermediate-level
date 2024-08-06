@@ -8,6 +8,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.sensors.time_sensor import TimeSensor
 from airflow.sensors.weekday import DayOfWeekSensor
+#has some errors
 
 dburl='mysql+pymysql://root:8551649@localhost:3306/stock_data'
 engine = sqlalchemy.create_engine(dburl)
@@ -17,8 +18,8 @@ ticker='WFC'
 class getData(beam.DoFn): # getData class inhernc from beam.DoFn
     def process(self,ticker): # check date for getting new data
         now=datetime.now()
-        dataQuery='SELECT MAX(Date) FROM stock_data WHERE symbol=%s'
-        newData=pd.read_sql(dataQuery,engine,params=[ticker]).value[0][0]
+        dataQuery='SELECT MAX(Date) FROM wfc'
+        newData=pd.read_sql(dataQuery,engine).value[0][0]
         if newData is None:
             newData='2024-01-02'
         
@@ -41,7 +42,7 @@ class storeData(beam.DoFn):
 
     def process(self, ticker):
         data = pd.DataFrame([ticker])
-        data.to_sql('stock_data', self.engine, if_exists='append', index=False)
+        data.to_sql(ticker, self.engine, if_exists='append', index=False)
 
     def finish_bundle(self):
         pass # no cleanup needed for SQLAlchemy engine

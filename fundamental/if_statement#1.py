@@ -20,13 +20,13 @@ cs=float(input("Computer Science:"))
 
 average=(math+englis+science+cs)/4
 
-if average>=90 & average<=100:
+if average>=90 and average<=100:
     grade='A'
-elif average>=80 & average< 90:
+elif average>=80 and average< 90:
     grade='B'
-elif average>=70 & average< 80:
+elif average>=70 and average< 80:
     grade='C'
-elif average>=60 & average< 70:
+elif average>=60 and average< 70:
     grade='D'
 else:
     grade='F'

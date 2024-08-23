@@ -5,18 +5,18 @@ num1=6
 result="Even" if num1 % 2==0 else "Odd"
 print(f"The {num1} is {result}")
 
-a = float(print("Enter number a: ")) 
-b = float(print("Enter number b: "))
+a = float(input("Enter number a: ")) 
+b = float(input("Enter number b: "))
 max_num = a if a > b else b
 print(f"The max number between {a} and {b} is {max_num}")
 min_num = a if a < b else b
 print(f"The min number between {a} and {b} is {min_num}")
 
-age=int(print("Enter your age: "))
+age=int(input("Enter your age: "))
 status = "Adult" if age >= 18 else "Child"
 print(f"Your are {age} years old, you are an/a {status}")
 
-temperature = float(print("Enter today's temperature:"))
+temperature = float(input("Enter today's temperature:"))
 weather="Hot" if temperature >=35 else "Cold"
 print(f"Today's {temperature} degree, it is {weather}")
 

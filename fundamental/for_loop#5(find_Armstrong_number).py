@@ -34,8 +34,7 @@ for i in range(digit):
     x=temp % 10
     y=pow(x,digit)
     result+=y
-    temp/=10
-    temp=math.floor(temp)
+    temp=math.floor(temp/10)
 if result == armstrong:
     print(f"The number of {armstrong} is a Armstrong number.")
 else:

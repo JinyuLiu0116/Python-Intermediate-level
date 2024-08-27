@@ -8,7 +8,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.sensors.time_sensor import TimeSensor
 
-dburl='mysql+pymysql://root:8551649@localhost:3306/stock_data'
+dburl='mysql+pymysql://root:root@localhost:3306/stock_data'
 engine = sqlalchemy.create_engine(dburl)
 
 ticker='wfc'

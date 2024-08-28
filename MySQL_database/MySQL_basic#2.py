@@ -37,9 +37,12 @@ cursor.execute("""
     (13, 'Brave', 'Brenda Chapman', 2012, 102),
     (14, 'Monsters University', 'Dan Scanlon', 2013, 110);
 """)
-
-cursor.execute("DESCRIBE movie")
 conn.commit()
+cursor.execute("DESCRIBE movie")
+
 
 for i in cursor:
-    print(i,end=" ")
+    print(i)
+cursor.close()
+conn.close()
+

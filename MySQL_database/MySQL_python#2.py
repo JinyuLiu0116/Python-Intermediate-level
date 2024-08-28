@@ -21,7 +21,7 @@ mycursor.execute("""
 
 
 mycursor.execute("DESCRIBE amz")
-
+db.commit()
 for x in mycursor:
     print(x) #x is iterator obj, will print line by line of mycursor
 

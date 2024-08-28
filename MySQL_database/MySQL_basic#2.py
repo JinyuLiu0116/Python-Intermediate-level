@@ -39,6 +39,7 @@ cursor.execute("""
 """)
 
 cursor.execute("DESCRIBE movie")
+conn.commit()
 
 for i in cursor:
     print(i,end=" ")

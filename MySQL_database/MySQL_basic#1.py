@@ -22,7 +22,7 @@ cursor.execute("""
 """)
 
 cursor.execute("SHOW TABLES")
-
+conn.commit()
 for table in cursor:
     print(table)
 
@@ -46,3 +46,4 @@ cursor.execute("""
     (2, 3),
     (1, 2); 
 """)
+conn.commit()

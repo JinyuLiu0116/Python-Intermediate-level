@@ -3,7 +3,7 @@ import numpy as np
 size=60
 
 array=[np.random.randint(1,101) for i in range(size)]
-
+#array=np.random.randint(1,101,size)
 print(array)
 print()
 for i in range(size-1):

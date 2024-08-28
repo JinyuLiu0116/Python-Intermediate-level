@@ -21,8 +21,8 @@ cursor.execute("""
     FOREIGN KEY (thing) REFERENCES thing (id));
 """)
 
-cursor.execute("SHOW TABLES")
 conn.commit()
+cursor.execute("SHOW TABLES")
 for table in cursor:
     print(table)
 
@@ -47,3 +47,5 @@ cursor.execute("""
     (1, 2); 
 """)
 conn.commit()
+cursor.close()
+conn.close()

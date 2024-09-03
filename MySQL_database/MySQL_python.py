@@ -29,9 +29,14 @@ for x in mycursor:
 mycursor.execute("""
                  INSERT INTO amz (Date, Open, High, Low, Close, `Adj Close`, Volume)
                   VALUES (%s,%s,%s,%s,%s,%s,%s)
-                 """,("2024-07-30",100.00,110.00,90.00,105.00,100.00,2321453))
+                 """,
+                 ("2024-07-30",100.00,110.00,90.00,105.00,100.00,2321453)
+                )
 db.commit()
 
 mycursor.execute("DESCRIBE amz")
 for x in mycursor:
     print(x)
+    
+mycursor.close()
+db.close()

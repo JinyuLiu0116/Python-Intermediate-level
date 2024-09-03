@@ -40,9 +40,9 @@ cursor.execute("""
 conn.commit()
 cursor.execute("DESCRIBE movie")
 
-
 for i in cursor:
     print(i)
+    
 cursor.close()
 conn.close()
 

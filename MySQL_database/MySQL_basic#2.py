@@ -38,9 +38,9 @@ cursor.execute("""
     (14, 'Monsters University', 'Dan Scanlon', 2013, 110);
 """)
 conn.commit()
-cursor.execute("DESCRIBE movie")
-
-for i in cursor:
+cursor.execute("SELECT * FROM movie")
+result = cursor.fetchall()
+for i in result:
     print(i)
     
 cursor.close()

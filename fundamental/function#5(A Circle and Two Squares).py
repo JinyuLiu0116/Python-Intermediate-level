@@ -29,3 +29,18 @@ area1=insideSquare(radius)
 area2=outsideSquare(radius)
 different=diff_Area(area1,area2)
 print(f"The different is:{different}")
+
+test = [5,6,7]
+result = [50, 72, 98]
+
+def tester(test, result):
+    for i in test:
+        r1=insideSquare(i)
+        r2=outsideSquare(i)
+        diff=diff_Area(r1, r2)
+        if not diff in result:
+            print(f"error: the {diff} is not the right answer for input value: {i}")
+        else:
+            print("pass")
+
+tester(test, result)

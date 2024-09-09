@@ -34,10 +34,17 @@ def sum(*args):
     return sum
 print(sum(7, 9, 10, 21))
 
-# arbitrary argument, **kwargs
-
-
 def displayName(*args):
     for arg in args:
         print(arg, end=" ")
 displayName("Jin", "Yu", "Cloud", "Underraining", "Liu", "VI")
+
+# arbitrary argument, **kwargs
+
+def displayAddress(**kwargs):
+    for key, value in kwargs.items():  # for key in kwargs.keys():    for value in kwargs.values():
+        print(f"{key}: {value}")
+displayAddress(street="Gold",
+               city="New York",
+               state="New York",
+               zip=11000)

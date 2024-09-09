@@ -24,3 +24,20 @@ def phoneNumber(country, area, first, last):
 
 myNumber = phoneNumber(country=1, area=650, first=456, last=7890)
 print(myNumber)
+
+# arbitrary argument, *args
+
+def sum(*args):
+    sum=0
+    for arg in argus:
+        sum += arg
+    return sum
+print(sum(7, 9, 10, 21))
+
+# arbitrary argument, **kwargs
+
+
+def displayName(*args):
+    for arg in args:
+        print(arg, end=" ")
+displayName("Jin", "Yu", "Cloud", "Underraining", "Liu", "VI")

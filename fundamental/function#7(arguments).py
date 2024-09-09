@@ -18,3 +18,9 @@ def greeting(greet, title, firstName, lastName):
     print(f"{greet}, {title}.{firstName}{lastName}")
 
 greeting("Hello", firstName="Jhon", lastName="James", title="Mr")
+
+def phoneNumber(country, area, first, last):
+    return f"+{country}({area})-{first}-{last}"
+
+myNumber = phoneNumber(country=1, area=650, first=456, last=7890)
+print(myNumber)

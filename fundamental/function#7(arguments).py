@@ -48,3 +48,16 @@ displayAddress(street="Gold",
                city="New York",
                state="New York",
                zip=11000)
+
+def shipping(*args, **kwargs):
+    for arg in args:
+        print(arg, end=" ")
+    print()
+    print(f"{kwargs.get('street')}")
+    print(f"{kwargs.get('city')} {kwargs.get('state')} {kwargs.get('zip')}")
+
+shipping("Jin", "Yu", "Cloud", "Underraining", "Liu", "VI",
+         street="Gold",
+         city="New York",
+         state="New York",
+         zip=11000)

@@ -4,7 +4,7 @@ def net_price(price, discount =0, tax = 0.08):
 print(f"The price is: ${net_price(500,0.3)}")
 
 import time
-
+# default argument
 def countTime(end, start=0):
     for second in range(start, end+1):
         print(second)
@@ -12,3 +12,9 @@ def countTime(end, start=0):
     print("Time up!")
 
 countTime(10)
+
+# keyword argument
+def greeting(greet, title, firstName, lastName):
+    print(f"{greet}, {title}.{firstName}{lastName}")
+
+greeting("Hello", firstName="Jhon", lastName="James", title="Mr")

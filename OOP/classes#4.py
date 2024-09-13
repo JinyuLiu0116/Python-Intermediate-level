@@ -1,17 +1,21 @@
 class Animal:
     def __init__(self, name):
-        self.name = name
+        self.__name = name
+    def getName(self):
+        return self.name
+    def setName(self, name):
+        self.name=name
     def eat(self):
-        print(f"{self.name} is Eating")
+        print(f"{self.getName()} is Eating")
     def sleep(self):
-        print(f"{self.name} is asleep")
+        print(f"{self.getName()} is asleep")
 class Pray(Animal):
     def flee(self):
-        print(f"{self.name} is fleeing")
+        print(f"{self.getName()} is fleeing")
 
 class Predator(Animal):
     def hunt(self):
-        print(f"{self.name} is hunting")
+        print(f"{self.getName()} is hunting")
 
 class Rabbit(Pray):
     pass

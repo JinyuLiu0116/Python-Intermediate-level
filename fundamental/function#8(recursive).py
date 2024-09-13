@@ -22,3 +22,18 @@ def writeVertical(num):
 number2= int(input("Enter a number and press Enter:"))
 
 writeVertical(number)
+
+def triangleNumber(num, sum):
+    sum+=num;
+    if not num == 0:
+        triangleNumber(num-1, sum)
+    else:
+        return sum
+
+num = int(input("Enter a number to caclulate triangle number:")
+while num <= 0:
+    print("Number cannot be 0 or negative")
+    num = int(input("Enter a number to caclulate triangle number:")
+sum = 0
+triangleNum = triangleNumber(num, sum)
+print(f"The triangle number of {num} is: {triangleNum}")

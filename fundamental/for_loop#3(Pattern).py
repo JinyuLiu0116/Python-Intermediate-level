@@ -27,3 +27,11 @@ for i in range(num):
     for l in range(i):
         print("*",end="")
     print()
+
+print()
+for row in range(0, count*2, 2):
+    for space in range(0, count*2-2-row, 2):
+        print(" ", end="")
+    for col in range(0,row+1):
+        print("*", end="")
+    print()

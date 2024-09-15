@@ -40,3 +40,17 @@ for i in range(num):
         print("*",end="")
     print()
 print()
+
+count = 9
+for row in range(0,count+2,2):
+    for space in range(0,count-row,2):
+        print(" ", end="")
+    for col in range(0,row-1):
+        print("*", end="")
+    print()
+for row in range(0,count-1,2):
+    for space in range(0,row+1,2):
+        print(" ", end="")
+    for col in range(0,count-2-row):
+        print("*", end="")
+    print()

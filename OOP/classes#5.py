@@ -5,6 +5,9 @@ class Employee:
     self.pay = pay
     self.email = firstName + '.' + lastName + '@company.com'
 
+  def funllName(self):
+    return '{} {}'.format(self.fistName, self.lastName)
+
 emp_1 = Employee('Corey', 'Schater', 50000)
 emp_2 = Employee('Test', 'User', 5000)
 
@@ -24,7 +27,8 @@ emp_2 = Employee('Test', 'User', 5000)
 print(emp_1.email)
 print(emp_2.email)
 
-print('{} {}'.format(emp_1.fistName, emp_1.lastName)
+print('{} {}'.format(emp_1.fistName, emp_1.lastName))
 #The curly braces {} inside the string are placeholders. They mark where you want to insert values. 
 #The format() method takes arguments, in this case, emp_1.fistName and emp_1.lastName. It replaces the placeholders {} 
 #in the string with the values passed to format()
+print(emp_1.fullName())

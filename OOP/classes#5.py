@@ -5,8 +5,8 @@ class Employee:
     self.pay = pay
     self.email = firstName + '.' + lastName + '@company.com'
 
-emp_1 = Employee()
-emp_2 = Employee()
+emp_1 = Employee('Corey', 'Schater', 50000)
+emp_2 = Employee('Test', 'User', 5000)
 
 print(emp_1)
 print(emp_2)

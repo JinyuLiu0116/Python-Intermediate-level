@@ -1,5 +1,9 @@
 class Employee:
-  pass
+  def __init__(self, firstName, lastName, pay):
+    self.firstName = firstName
+    self.lastName = lastName
+    self.pay = pay
+    self.email = firstName + '.' + lastName + '@company.com'
 
 emp_1 = Employee()
 emp_2 = Employee()

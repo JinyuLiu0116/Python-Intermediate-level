@@ -10,7 +10,7 @@ class Employee:
     return '{} {}'.format(self.firstName, self.lastName)
 
   def apply_raise(self):
-    self.pay = int(self.pay * Employee.raise_amount)
+    self.pay = int(self.pay * self.raise_amount) # can also uer Employee.rasie_amount
 
 emp_1 = Employee('Corey', 'Schafer', 50000)
 emp_2 = Employee('Test', 'User', 5000)

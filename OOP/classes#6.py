@@ -1,10 +1,12 @@
 class Employee:
+  numberOfEmployee = 0
   raise_amount = 1.04
   def __init__(self, firstName, lastName, pay):
     self.firstName = firstName
     self.lastName = lastName
     self.pay = pay
     self.email = fristName + '.' + lastName + '@company.com'
+    Employee.numberOfEmployee += 1
 
   def getFullNmae(self):
     return '{} {}'.format(self.firstName, self.lastName)

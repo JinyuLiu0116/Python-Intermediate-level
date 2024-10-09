@@ -18,3 +18,5 @@ emp_2 = Employee('Test', 'User', 5000)
 emp_1.apply_raise()
 print(emp_1.pay)
 print(emp_1.__dict__) #check all elements
+print(emp_1.rasie_amount)
+print(Employee.rasie_amount)

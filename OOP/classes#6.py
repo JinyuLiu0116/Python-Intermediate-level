@@ -25,6 +25,6 @@ Employee.rasie_amount = 1.05
 print(emp_1.rasie_amount) # output: 1.05
 print(Employee.rasie_amount) # output: 1.05
 
-emp_1.rasie_amount = 1.06
+emp_1.rasie_amount = 1.06 # after excuted this code, emp-1 has created a rasi_amount attribute
 print(emp_1.rasie_amount) # output: 1.06
 print(Employee.rasie_amount) # output: 1.05

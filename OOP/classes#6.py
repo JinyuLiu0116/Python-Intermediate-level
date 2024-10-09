@@ -6,7 +6,7 @@ class Employee:
     self.email = fristName + '.' + lastName + '@company.com'
 
   def getFullNmae(self):
-    return self.firstName + ' ' + self.lastNmae
+    return '{} {}'.format(self.firstName, self.lastName)
 
 emp_1 = Employee('Corey', 'Schafer', 50000)
 emp_2 = Employee('Test', 'User', 5000)

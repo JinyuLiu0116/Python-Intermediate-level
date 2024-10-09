@@ -20,3 +20,11 @@ print(emp_1.pay)
 print(emp_1.__dict__) #check all elements
 print(emp_1.rasie_amount)
 print(Employee.rasie_amount)
+
+Employee.rasie_amount = 1.05
+print(emp_1.rasie_amount) # output: 1.05
+print(Employee.rasie_amount) # output: 1.05
+
+emp_1.rasie_amount = 1.06
+print(emp_1.rasie_amount) # output: 1.06
+print(Employee.rasie_amount) # output: 1.05

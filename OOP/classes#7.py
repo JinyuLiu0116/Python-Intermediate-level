@@ -18,7 +18,11 @@ class Employee:
     @classmethod
     def set_raise_amount(cls, amount):
         cls.raise_amount = amount
-
+    @classmethod
+    def from_string(cls, emp_str):
+        firstName, lastName, pay = emp_str.split('-')
+        return cls(firstName, lastName, pay)
+        
 emp_1 = Employee('Ikura', 'Lila', 100000)
 emp_2 = Employee('Ayasee', 'Kula', 95000)
 
@@ -45,3 +49,8 @@ new_emp_1 = Employee(firstName, lastName, pay)
 
 print(new_emp_1.email)
 print(new_emp_1.pay)
+
+new_emp_2 = Employee.from_string(emp_string_2)
+
+print(new_emp_2.email)
+print(new_emp_2.pay)

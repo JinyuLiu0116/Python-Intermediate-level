@@ -5,7 +5,7 @@ class Employee:
     def __init__(self, firstName, lastName, pay):
         self.firstName = firstName
         self.lastName = lastName
-        self.email = firstName + ' ' + lastName + '@email.com'
+        self.email = firstName + '.' + lastName + '@email.com'
         self.pay = pay
         Employee.num_of_emps += 1
 
@@ -33,3 +33,15 @@ emp_1.set_raise_amount(1.06)
 print(Employee.raise_amount)
 print(emp_1.raise_amount)
 print(emp_2.raise_amount)
+print('#####################################')
+
+emp_string_1 = 'John-Doe-70000'
+emp_string_2 = 'Steve-Smith-30000'
+emp_string_3 = 'Jane-Doe-90000'
+
+
+firstName, lastName, pay = emp_string_1.split('-')
+new_emp_1 = Employee(firstName, lastName, pay)
+
+print(new_emp_1.email)
+print(new_emp_1.pay)

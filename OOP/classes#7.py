@@ -11,3 +11,15 @@ class Employee:
 
     def getFullName(self):
         return '{} {}'.format(self.firstName, self.lastName)
+
+    def apply_raise(self):
+        self.pay = int(self.pay + self.raise_amount)
+
+    
+
+emp_1 = Employee('Ikura', 'Lila', 100000)
+emp_2 = Employee('Ayasee', 'Kula', 95000)
+
+print(Employee.raise_amount)
+print(emp_1.raise_amount)
+print(emp_2.raise_amount)

@@ -34,8 +34,22 @@ class LinkedList:
         self.head = first_node
 
     def insrt(self, value, index):
-        pass
+        if index == 0:
+            self.prepend(value)
+        else:
+            if self.head is None:
+                raise ValueError("Index out of bounds")
+            else:
+                last = self.head
+                
+                for i in range(index-1):
+                    if last.next is None:
+                        raise ValueError("Index out of bounds")
+                    last = last.next
 
+                new_node = Node(value)
+                new_node.next = last.next
+                last.next = new_node
     def delete(self, value):
         pass
 

@@ -18,7 +18,7 @@ class LinkedList:
 
     def __len__(self):
         pass
-
+    #O(n) linear time, linear run time complexity
     def append(self, value):
         if self.head is None:
             self.head = Node(value)
@@ -27,9 +27,11 @@ class LinkedList:
             while last.next:
                 last = last.next
             last.next = Node(value)
-
+    #O(1) constant time
     def prepend(self, value):
-        pass
+        first_node = Node(value)
+        first_node.next = self.head
+        self.head = first_node
 
     def insrt(self, value, index):
         pass

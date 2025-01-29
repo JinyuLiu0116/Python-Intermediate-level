@@ -35,3 +35,6 @@ class TestConnection(unittest.TestCase):
         ])
 if __name__=='__main__':
     unittest.main()
+
+#coverage run -m unittest test_script.py
+#coverage report -m

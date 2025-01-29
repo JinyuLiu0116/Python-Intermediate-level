@@ -8,3 +8,20 @@ conn = mysql.connector.connect(
 )
 if conn:
     print('Connection has been build')
+
+cursor = conn.cursor()
+if cursor:
+    print('Cursor has been builded')
+
+#List the part number, description, and price for parts.
+
+
+
+
+
+if cursor:
+    cursor.close()
+    print('Cursor has been closed')
+if conn:
+    conn.close()
+    print('Connection has been closed')

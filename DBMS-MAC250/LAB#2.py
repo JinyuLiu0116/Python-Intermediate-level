@@ -25,3 +25,11 @@ def query_mysql_executor(query):
     if conn:
         conn.close()
     return result
+#1. For each order. list the order number and order date along with the
+#   number and name of the customer that placed the order.
+query = """SELECT orderNum, orderDate, orders.customerNum, customerName
+           FROM orders, customer
+           WHERE orders.customerNum = customer.customerNum;"""
+print('#1')
+result = query_mysql_executor(query)
+print(result)

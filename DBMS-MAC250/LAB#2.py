@@ -49,8 +49,8 @@ print(result3)
 #   an order on October 23, 2010
 query = """SELECT customerNum, customerName
            FROM customer
-           WHERE customerNum IN(
-                SELECT customerNum FROM orders
+           WHERE customerNum
+           IN(SELECT customerNum FROM orders
                 WHERE orderDate = '2010-10-23');"""
 print('#4')
 result4 = query_mysql_executor(query=query)

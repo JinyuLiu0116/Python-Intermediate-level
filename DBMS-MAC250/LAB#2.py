@@ -10,7 +10,7 @@ def query_mysql_executor(query):
         password = '8551649',
         database = 'premiere'
     )
-    
+
     cursor = conn.cursor()
     query = query
     cursor.execute(query)
@@ -26,7 +26,7 @@ query = """SELECT orderNum, orderDate, orders.customerNum, customerName
            FROM orders, customer
            WHERE orders.customerNum = customer.customerNum;"""
 print('#1')
-result1 = query_mysql_executor(query)
+result1 = query_mysql_executor(query=query)
 print(result1)
 #2. For each order placed on October 23, 2010, list the order number along with
 #   the number and name of the customer that placed the order.
@@ -35,5 +35,13 @@ query = """SELECT orderNum, orders.customerNum, customerName
            WHERE orders.customerNum = customer.customerNum
            AND orderDate = '2010-10-23';"""
 print('#2')
-result2 = query_mysql_executor(query)
+result2 = query_mysql_executor(query=query)
 print(result2)
+#3. For each order, list the order number, order date, part number, number of
+#   units ordered, and quoted price for each order line that makes up the order
+query = """SELECT orderline.orderNum, orderDate, partNum, numOrdered, quotedPrice
+           FROM orders, orderline
+           WHERE orderline.orderNum = orders.orderNum;"""
+print('#3')
+result3 = query_mysql_executor(query=query)
+print(result3)

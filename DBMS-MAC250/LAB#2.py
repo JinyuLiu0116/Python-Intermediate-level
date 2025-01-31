@@ -45,3 +45,13 @@ query = """SELECT orderline.orderNum, orderDate, partNum, numOrdered, quotedPric
 print('#3')
 result3 = query_mysql_executor(query=query)
 print(result3)
+#4. Use the IN operator to find the number and name of each customer that placed
+#   an order on October 23, 2010
+query = """SELECT customerNum, customerName
+           FROM customer
+           WHERE customerNum IN(
+                SELECT customerNum FROM orders
+                WHERE orderDate = '2010-10-23');"""
+print('#4')
+result4 = query_mysql_executor(query=query)
+print(result4)

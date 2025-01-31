@@ -55,3 +55,17 @@ query = """SELECT customerNum, customerName
 print('#4')
 result4 = query_mysql_executor(query=query)
 print(result4)
+#7. For each order, list the order number, order date, part number, part description
+#   and item class for each part that makes up the order.
+query = """SELECT orderNum, orderDate, partNum, description, class
+           FROM orders, part;"""
+print('#7')
+result7 = query_mysql_executor(query=query)
+print(result7)
+#8. Repeat Exercise 7, but this time order the rows by item class and then by order number.
+query = """SELECT orderNum, orderDate, partNum, description, class
+           FROM orders, part
+           ORDER BY class, orderNum;"""
+print('#8')
+result8 = query_mysql_executor(query=query)
+print(result8)

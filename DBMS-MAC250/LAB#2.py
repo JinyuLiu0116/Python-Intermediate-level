@@ -10,13 +10,8 @@ def query_mysql_executor(query):
         password = '8551649',
         database = 'premiere'
     )
-    if conn:
-        print('Connection has been built')
     
     cursor = conn.cursor()
-    if cursor:
-        print('Cursor has been created')
-
     query = query
     cursor.execute(query)
     result = cursor.fetchall()
@@ -31,5 +26,14 @@ query = """SELECT orderNum, orderDate, orders.customerNum, customerName
            FROM orders, customer
            WHERE orders.customerNum = customer.customerNum;"""
 print('#1')
-result = query_mysql_executor(query)
-print(result)
+result1 = query_mysql_executor(query)
+print(result1)
+#2. For each order placed on October 23, 2010, list the order number along with
+#   the number and name of the customer that placed the order.
+query = """SELECT orderNum, orders.customerNum, customerName
+           FROM orders, customer
+           WHERE orders.customerNum = customer.customerNum
+           AND orderDate = '2010-10-23';"""
+print('#2')
+result2 = query_mysql_executor(query)
+print(result2)

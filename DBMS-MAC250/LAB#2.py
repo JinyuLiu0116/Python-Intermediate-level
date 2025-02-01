@@ -80,3 +80,10 @@ query = """SELECT customer.customerNum, customerName
 print('#11')
 result11 = query_mysql_executor(query=query)
 print(result11)
+#12.List the part number, part description, and item class for each pair of parts that are in
+#   the same item class.
+query = """SELECT partNum, description, class FROM part
+           ORDER BY class;"""
+print('#12')
+result12 = query_mysql_executor(query=query)
+print(result12)

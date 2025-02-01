@@ -96,3 +96,12 @@ query = """SELECT 0.orderNum, orderDate
 print('#13')
 result13 = query_mysql_executor(query=query)
 print(result13)
+#14.List the order number and order date for each order that contains an order line for an Iron
+query = """SELECT o.orderNum, orderDate
+           FROM orders o, orderline l, part p
+           WHERE o.orderNum = l.orderNum
+           AND l.partNum = p.partNum
+           AND description = 'Iron';"""
+print('#14')
+result14 = query_mysql_executor(query=query)
+print(result14)

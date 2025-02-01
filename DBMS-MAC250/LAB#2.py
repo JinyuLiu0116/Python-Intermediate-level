@@ -69,3 +69,14 @@ query = """SELECT orderNum, orderDate, partNum, description, class
 print('#8')
 result8 = query_mysql_executor(query=query)
 print(result8)
+#11.Find the number and name of each customer that currently has an order on 
+#   file for a Gas Range.
+query = """SELECT customer.customerNum, customerName
+           FROM customer, orders, orderline, part
+           WHERE customer.customerNum = orders.customerNum
+           And orders.orderNum = orderline.orderNum
+           ANd orderline.partNum = part.partNum
+           ANd description = 'Gas Range';"""
+print('#11')
+result11 = query_mysql_executor(query=query)
+print(result11)

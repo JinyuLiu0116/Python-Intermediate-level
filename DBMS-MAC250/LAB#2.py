@@ -57,8 +57,10 @@ result4 = query_mysql_executor(query=query)
 print(result4)
 #7. For each order, list the order number, order date, part number, part description
 #   and item class for each part that makes up the order.
-query = """SELECT orderNum, orderDate, partNum, description, class
-           FROM orders, part;"""
+query = """SELECT orders.orderNum, orderDate, part.partNum, description, class
+            FROM orders, part, orderline
+            WHERE orders.orderNum = orderline.orderNum
+            AND orderline.partNum = part.partNum;"""
 print('#7')
 result7 = query_mysql_executor(query=query)
 print(result7)

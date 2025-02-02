@@ -12,6 +12,7 @@ query = """CREATE TABLE employee(
             e_ssn CHAR(9),
             date DATE,
             address CHAR(50),
+            sex,
             salary INT,
             sup_e_ssn CHAR(9),
             d_num CHAR(1)

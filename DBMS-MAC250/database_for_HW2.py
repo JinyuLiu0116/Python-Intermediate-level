@@ -41,6 +41,11 @@ query ="""
         PRIMARY KEY(d_num, d_location));"""
 
 query = """
+        ALTER TABLE dept_locations
+        ADD CONSTRAINT fk_location_department
+        FOREIGN KEY(d_num) REFERENCES department(d_num);"""
+
+query = """
         CREATE TABLE project(
         p_name CHAR(30),
         p_num CHAR(2) PRIMARY KEY,

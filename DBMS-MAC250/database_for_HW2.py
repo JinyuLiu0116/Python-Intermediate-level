@@ -40,6 +40,14 @@ query ="""
         d_location CHAR(15),
         PRIMARY KEY(d_num, d_location));"""
 
+query = """
+        CREATE TABLE project(
+        p_name CHAR(30),
+        p_num CHAR(2) PRIMARY KEY,
+        p_location CHAR(20),
+        d_num CHAR(1),
+        FOREIGN KEY(d_num) REFERENCES dept_locations(d_num));"""
+
 cursor = conn.cursor()
 cursor.execute(query)
 

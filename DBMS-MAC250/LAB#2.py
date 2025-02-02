@@ -65,9 +65,11 @@ print('#7')
 result7 = query_mysql_executor(query=query)
 print(result7)
 #8. Repeat Exercise 7, but this time order the rows by item class and then by order number.
-query = """SELECT orderNum, orderDate, partNum, description, class
-           FROM orders, part
-           ORDER BY class, orderNum;"""
+query = """SELECT orders.orderNum, orderDate, part.partNum, description, class
+            FROM orders, part, orderline
+            WHERE orders.orderNum = orderline.orderNum
+            AND orderline.partNum = part.partNum
+            ORDER BY class, orderNum;"""
 print('#8')
 result8 = query_mysql_executor(query=query)
 print(result8)

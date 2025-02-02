@@ -93,7 +93,7 @@ result12 = query_mysql_executor(query=query)
 print(result12)
 #13.List the order number and order date for each order placed by the customer named
 #   Johnson's Department Store
-query = """SELECT 0.orderNum, orderDate
+query = """SELECT o.orderNum, orderDate
            FROM orders o, customer c
            WHERE o.customerNum = c.customerNum
            AND customerName = 'Johnson''s Department Store';"""

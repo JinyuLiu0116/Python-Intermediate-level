@@ -48,6 +48,13 @@ query = """
         d_num CHAR(1),
         FOREIGN KEY(d_num) REFERENCES dept_locations(d_num));"""
 
+query = """
+        CREATE TABLE works_on(
+        e_ssn CHAR(9),
+        p_num CHAR(2),
+        hours DECIMAL(4,2),
+        PRIMARY KEY(e_ssn, p_num));"""
+
 cursor = conn.cursor()
 cursor.execute(query)
 

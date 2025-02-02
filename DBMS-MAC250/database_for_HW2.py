@@ -34,3 +34,11 @@ query = """ALTER TABLE employee
             REFERENCES department(d_num);"""
 cursor = conn.cursor()
 cursor.execute(query)
+
+
+
+
+if cursor:
+    cursor.close()
+if conn:
+    conn.close()

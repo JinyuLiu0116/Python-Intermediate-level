@@ -33,6 +33,13 @@ query = """ALTER TABLE employee
             ADD CONSTRAINT fk_employee
             FOREIGN KEY(d_num)
             REFERENCES department(d_num);"""
+
+query ="""
+        CREATE TABLE dept_locations(
+        d_num  CHAR(1),
+        d_location CHAR(15),
+        PRIMARY KEY(d_num, d_location));"""
+
 cursor = conn.cursor()
 cursor.execute(query)
 

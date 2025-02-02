@@ -57,6 +57,17 @@ query = """
         ADD CONSTRAINT fk_works_project
         FOREIGN KEY(p_num) REFERENCES project(p_num);"""
 
+query = """
+        CREATE TABLE dependent(
+        e_ssn CHAR(9),
+        dependent_name CHAR(15),
+        sex CHAR(1),
+        date DATE,
+        relationship CHAR(15),
+        PRIMARY KEY(e_ssn, dependent_name),
+        FOREIGN KEY(e_ssn) REFERENCES employee(e_ssn)
+        );"""
+
 cursor = conn.cursor()
 cursor.execute(query)
 

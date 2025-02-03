@@ -75,3 +75,25 @@ result5 = cursor.fetchall()
 
 for row in result5:
     print(row)
+# f) Retrieve the name of employees who work on EVERY project. 
+query6 = """SELECT f_name, m_name, l_name AS name
+            FROM employee e
+            WHERE e.e_ssn =(SELECT e_ssn FROM works_on GROUP BY e_ssn HAVING COUNT(p_num) = (
+		        SELECT COUNT(p_num) FROM project));"""
+
+cursor = conn.cursor()
+cursor.execute(query6)
+result6 = cursor.fetchall()
+
+for row in result6:
+    print(row)
+#g) Retrieve the average salary of all female employees. 
+query7 ="""SELECT AVG(salary) FROM employee
+            WHERE sex = 'M';"""
+cursor = conn.cursor()
+print('#7')
+cursor.execute(query7)
+result7 = cursor.fetchall()
+
+for row in result7:
+    print(row)

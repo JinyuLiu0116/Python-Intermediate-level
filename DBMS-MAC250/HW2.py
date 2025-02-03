@@ -23,3 +23,31 @@ result = cursor.fetchall()
 
 for row in result:
     print(row)
+# b) List the names of all employees who have a dependent with the same first name as themselves. 
+query2 = """
+        SELECT f_name, m_name, l_name
+        FROM employee e, dependent d
+        WHERE e.e_ssn = d.e_ssn
+        AND e.f_name = d.dependent_name;
+        """
+cursor = conn.cursor()
+cursor.execute(query2)
+result2 = cursor.fetchall()
+
+for row in result2:
+    print(row)
+# c) Find the names of all employees who are directly supervised by ‘Franklin Wong’. 
+query3 = """
+        SELECT f_name, m_name, l_name
+        FROM employee
+        WHERE sup_e_ssn = (
+                            SELECT e_ssn FROM employee
+                            WHERE f_name = 'Franklin'
+                            AND l_name = 'Wong');
+        """
+cursor = conn.cursor()
+cursor.execute(query3)
+result3 = cursor.fetchall()
+
+for row in result3:
+    print(row)

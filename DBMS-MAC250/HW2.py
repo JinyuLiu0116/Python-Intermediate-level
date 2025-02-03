@@ -51,3 +51,27 @@ result3 = cursor.fetchall()
 
 for row in result3:
     print(row)
+# d) For each project, list the project name and the total hours per week (by all employees) spent on that project. 
+query4 = """
+        SELECT p_name, SUM(hours) as total_hours
+        FROM project p, works_on w
+        WHERE p.p_num = w.p_num
+        GROUP BY p_name;"""
+
+cursor = conn.cursor()
+cursor.execute(query4)
+result4 = cursor.fetchall()
+
+for row in result4:
+    print(row)
+# e) For each department, retrieve the department name and the average salary of all employees working in that department.
+query5 = """SELECT d_name, AVG(salary) as avg_salary
+            FROM department d, employee e
+            WHERE d.d_num = e.d_num
+            GROUP BY d_name;""" 
+cursor = conn.cursor()
+cursor.execute(query5)
+result5 = cursor.fetchall()
+
+for row in result5:
+    print(row)

@@ -97,3 +97,40 @@ result7 = cursor.fetchall()
 
 for row in result7:
     print(row)
+# h) Find the names and addresses of all eemployees who work on at least one project located in Houston, 
+# but whose department has no location in Houston. 
+query8 = """SELECT f_name, m_name, l_name, address
+            FROM employee e, dept_locations d, project p, works_on w
+            WHERE e.e_ssn = w.e_ssn
+            AND w.p_num = p.p_num
+            AND p.d_num = d.d_num
+            AND w.hours IS NOT Null
+            AND p.p_location = 'HOUSTON'
+            AND d.d_location != 'HOUSTON'
+            GROUP BY f_name, m_name, l_name, address;"""
+cursor = conn.cursor()
+print('#8')
+cursor.execute(query8)
+result8 = cursor.fetchall()
+
+for row in result8:
+    print(row)
+# i) List the last names of all department managers who have no dependents.
+query9 = """SELECT l_name
+            FROM employee
+            WHERE e_ssn IN
+            (SELECT mgr_ssn FROM department
+             WHERE mgr_ssn NOT IN
+                (SELECT e_ssn FROM dependent));"""
+cursor = conn.cursor()
+print('#9')
+cursor.execute(query9)
+result9 = cursor.fetchall()
+
+for row in result9:
+    print(row)
+
+if cursor:
+    cursor.close()
+if conn:
+    conn.close()

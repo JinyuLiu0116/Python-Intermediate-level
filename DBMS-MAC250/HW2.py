@@ -1,23 +1,18 @@
 import mysql.connector
 
 def query_mysql_executor(query):
-    conn = mysql.connector.connect(
-        host = 'localhost',
-        user = 'root',
-        password = '8551649',
-        database = 'company'
-    )
     try:
-        cursor = conn.cursor()
-        cursor.execute(query)
-        return cursor.fetchall()
+        with mysql.connector.connect(
+            host = 'localhost',
+            user = 'root',
+            password = '8551649',
+            database = 'company'
+        ) as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(query)
+                return cursor.fetchall()
     except Exception as e:
         raise Exception('Query failed %s', e)
-    finally:
-        if cursor:
-            cursor.close()
-        if conn:
-            conn.close()
 
 #a) Retrieve the names of all employees in Department 5 who work more than 10 hours per week on the ‘Product X’ project. 
 query = """

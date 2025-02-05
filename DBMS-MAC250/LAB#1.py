@@ -1,34 +1,19 @@
 import mysql.connector
 
 def query_mysql_executor(query, num):
-    conn = None
-    cursor = None
     try:
-        conn = mysql.connector.connect(
+        with mysql.connector.connect(
             host = 'localhost',
             user = 'root',
             password = '8551649',
             database = 'premiere'
-        )
-        if conn:
-            print('Connection has been built')
-
-        cursor = conn.cursor()
-        if cursor:
-            print('Cursor has been built')
-        cursor.execute(query)
-        result = cursor.fetchall()
-        print(f"#{num}: {result}\n")
+        ) as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(query)
+                result = cursor.fetchall()
+                print(f"#{num}: {result}\n")
     except Exception as e:
         raise Exception(f"Job Failed {e}")
-    
-    finally:
-        if cursor:
-            cursor.close()
-            print('Cursor has been closed')
-        if conn:
-            conn.close()
-            print('Connection has been closed')
 
     #List the part number, description, and price for part.
 query = 'SELECT partNum, description, price FROM part'

@@ -1,25 +1,17 @@
 import mysql.connector
 
 def query_mysql_executor(query):
-    conn = None
-    cursor = None
-    result = None
-    conn = mysql.connector.connect(
+    
+    with mysql.connector.connect(
         host ='localhost',
         user = 'root',
         password = '8551649',
         database = 'premiere'
-    )
+        ) as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(query)
+            return cursor.fetchall()
 
-    cursor = conn.cursor()
-    query = query
-    cursor.execute(query)
-    result = cursor.fetchall()
-    if cursor:
-        cursor.close()
-    if conn:
-        conn.close()
-    return result
 #1. For each order. list the order number and order date along with the
 #   number and name of the customer that placed the order.
 query = """SELECT orderNum, orderDate, orders.customerNum, customerName
@@ -57,19 +49,15 @@ result4 = query_mysql_executor(query=query)
 print(result4)
 #7. For each order, list the order number, order date, part number, part description
 #   and item class for each part that makes up the order.
-query = """SELECT orders.orderNum, orderDate, part.partNum, description, class
-            FROM orders, part, orderline
-            WHERE orders.orderNum = orderline.orderNum
-            AND orderline.partNum = part.partNum;"""
+query = """SELECT orderNum, orderDate, partNum, description, class
+           FROM orders, part;"""
 print('#7')
 result7 = query_mysql_executor(query=query)
 print(result7)
 #8. Repeat Exercise 7, but this time order the rows by item class and then by order number.
-query = """SELECT orders.orderNum, orderDate, part.partNum, description, class
-            FROM orders, part, orderline
-            WHERE orders.orderNum = orderline.orderNum
-            AND orderline.partNum = part.partNum
-            ORDER BY class, orderNum;"""
+query = """SELECT orderNum, orderDate, partNum, description, class
+           FROM orders, part
+           ORDER BY class, orderNum;"""
 print('#8')
 result8 = query_mysql_executor(query=query)
 print(result8)
@@ -93,7 +81,7 @@ result12 = query_mysql_executor(query=query)
 print(result12)
 #13.List the order number and order date for each order placed by the customer named
 #   Johnson's Department Store
-query = """SELECT o.orderNum, orderDate
+query = """SELECT 0.orderNum, orderDate
            FROM orders o, customer c
            WHERE o.customerNum = c.customerNum
            AND customerName = 'Johnson''s Department Store';"""

@@ -20,3 +20,11 @@ def query_mysql_executor(query, conn):
 #Find all the Toy Story movies      
 query1 = """SELECT * FROM movies WHERE title LIKE '%Toy Story%';"""
 print(f"#1. {query_mysql_executor(query1, conn=conn)}")
+
+#Find all the movies directed by John Lasseter
+query2 = """SELECT * FROM movies WHERE director = 'John Lasseter';"""
+print(f"#2. {query_mysql_executor(query2, conn=conn)}")
+
+#Find all the movies (and director) not directed by John Lasseter
+query3 = """SELECT title, director FROM movies WHERE director != 'John Lasseter';"""
+print(f"#3. {query_mysql_executor(query3, conn=conn)}")

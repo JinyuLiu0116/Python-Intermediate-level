@@ -36,3 +36,10 @@ print(f"#4. {query_mysql_executor(query4, conn=conn)}")
 #List all directors of Pixar movies (alphabetically), without duplicates
 query5 = """SELECT DISTINCT director FROM movies ORDER BY director ASC;"""
 print(f"#5. {query_mysql_executor(query5, conn=conn)}")
+
+#List the last four Pixar movies released (ordered from most recent to least)
+query6 = """SELECT title, year FROM movies ORDER BY year DESC LIMIT 4;"""
+print(f"#6. {query_mysql_executor(query6, conn=conn)}")
+
+if conn:
+    conn.close()

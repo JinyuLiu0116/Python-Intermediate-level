@@ -41,5 +41,15 @@ print(f"#5. {query_mysql_executor(query5, conn=conn)}")
 query6 = """SELECT title, year FROM movies ORDER BY year DESC LIMIT 4;"""
 print(f"#6. {query_mysql_executor(query6, conn=conn)}")
 
+#List the first five Pixar movies sorted alphabetically
+query7 = """SELECT * FROM movies ORDER BY title ASC LIMIT 5;"""
+print(f"#7. {query_mysql_executor(query7, conn=conn)}")
+
+#List the next five Pixar movies sorted alphabetically
+query8 = """SELECT title FROM movies ORDER BY title ASC LIMIT 5 OFFSET 5;"""
+print(f"#8. {query_mysql_executor(query8, conn=conn)}")
+
+
+
 if conn:
     conn.close()

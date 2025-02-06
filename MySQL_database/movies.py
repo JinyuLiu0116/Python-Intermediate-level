@@ -28,3 +28,11 @@ print(f"#2. {query_mysql_executor(query2, conn=conn)}")
 #Find all the movies (and director) not directed by John Lasseter
 query3 = """SELECT title, director FROM movies WHERE director != 'John Lasseter';"""
 print(f"#3. {query_mysql_executor(query3, conn=conn)}")
+
+#Find all the WALL-* movies
+query4 = """SELECT * FROM movies WHERE title LIKE '%WALL-%';"""
+print(f"#4. {query_mysql_executor(query4, conn=conn)}")
+
+#List all directors of Pixar movies (alphabetically), without duplicates
+query5 = """SELECT DISTINCT director FROM movies ORDER BY director ASC;"""
+print(f"#5. {query_mysql_executor(query5, conn=conn)}")

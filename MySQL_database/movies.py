@@ -49,6 +49,16 @@ print(f"#7. {query_mysql_executor(query7, conn=conn)}")
 query8 = """SELECT title FROM movies ORDER BY title ASC LIMIT 5 OFFSET 5;"""
 print(f"#8. {query_mysql_executor(query8, conn=conn)}")
 
+conn = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = '8551649',
+    database = 'north_american_cities'
+)
+#List all the Canadian cities and their populations
+query9 ="""SELECT city, population FROM North_american_cities WHERE country = "Canada";"""
+print(f"#9. {query_mysql_executor(query9, conn=conn)}")
+
 
 
 if conn:

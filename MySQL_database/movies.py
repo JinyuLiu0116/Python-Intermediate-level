@@ -55,10 +55,14 @@ conn = mysql.connector.connect(
     password = '8551649',
     database = 'north_american_cities'
 )
+
 #List all the Canadian cities and their populations
-query9 ="""SELECT city, population FROM North_american_cities WHERE country = "Canada";"""
+query9 = """SELECT city, population FROM North_american_cities WHERE country = "Canada";"""
 print(f"#9. {query_mysql_executor(query9, conn=conn)}")
 
+#Order all the cities in the United States by their latitude from north to south
+query10 = """SELECT city FROM North_american_cities WHERE country = "United States" ORDER BY latitude DESC;"""
+print(f"#10. {query_mysql_executor(query10, conn=conn)}")
 
 
 if conn:

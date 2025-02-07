@@ -64,6 +64,10 @@ print(f"#9. {query_mysql_executor(query9, conn=conn)}")
 query10 = """SELECT city FROM North_american_cities WHERE country = "United States" ORDER BY latitude DESC;"""
 print(f"#10. {query_mysql_executor(query10, conn=conn)}")
 
+#List all the cities west of Chicago, ordered from west to east
+query11 = """SELECT city FROM North_american_cities WHERE longtiude < (SELECT longtiude FROM North_american_cities WHERE city = 'Chicago' ORDER BY ASC);"""
+print(f"#11. {query_mysql_executor(query11, conn=conn)}")
+
 
 if conn:
     conn.close()

@@ -68,6 +68,10 @@ print(f"#10. {query_mysql_executor(query10, conn=conn)}")
 query11 = """SELECT city FROM North_american_cities WHERE longtiude < (SELECT longtiude FROM North_american_cities WHERE city = 'Chicago' ORDER BY ASC);"""
 print(f"#11. {query_mysql_executor(query11, conn=conn)}")
 
+#List the two largest cities in Mexico (by population)
+query12 = """SELECT city, population FROM North_american_cities WHERE country = 'Mexico' ORDER BY population DESC LIMIT 2;"""
+print(f"#12. {query_mysql_executor(query12, conn=conn)}")
+
 
 if conn:
     conn.close()

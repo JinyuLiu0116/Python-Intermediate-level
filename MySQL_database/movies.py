@@ -72,6 +72,10 @@ print(f"#11. {query_mysql_executor(query11, conn=conn)}")
 query12 = """SELECT city, population FROM North_american_cities WHERE country = 'Mexico' ORDER BY population DESC LIMIT 2;"""
 print(f"#12. {query_mysql_executor(query12, conn=conn)}")
 
+#List the third and fourth largest cities (by population) in the United States and their population
+query13 = """SELECT city, population FROM North_american_cities WHERE country = 'United States' ORDER BY population DESC LIMIT 2 OFFSET 2;"""
+print(f"#13. {query_mysql_executor(query13, conn=conn)}")
+
 
 if conn:
     conn.close()

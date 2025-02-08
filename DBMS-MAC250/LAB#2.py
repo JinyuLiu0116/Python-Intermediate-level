@@ -6,7 +6,7 @@ conn = mysql.connector.connect(
     password = '8551649',
     database = 'premiere'
 )
-def query_mysql_executor(query):
+def query_mysql_executor(query, conn):
     result = None
     try:
         with conn.cursor() as cursor:

@@ -24,7 +24,7 @@ query = """
         AND d.d_num = '5'
         AND hours > 10
         AND p.p_name = 'productx';"""
-result = query_mysql_executor(query)
+result = query_mysql_executor(query, conn=conn)
 print(f"#1: {result}")
 
 # b) List the names of all employees who have a dependent with the same first name as themselves. 
@@ -34,7 +34,7 @@ query2 = """
         WHERE e.e_ssn = d.e_ssn
         AND e.f_name = d.dependent_name;
         """
-result2 = query_mysql_executor(query2)
+result2 = query_mysql_executor(query2, conn=conn)
 print(f"#2: {result2}")
 # c) Find the names of all employees who are directly supervised by ‘Franklin Wong’. 
 query3 = """

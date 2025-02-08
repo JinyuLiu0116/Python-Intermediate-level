@@ -1,17 +1,21 @@
 import mysql.connector
 
+conn = mysql.connector.connect(
+    host ='localhost',
+    user = 'root',
+    password = '8551649',
+    database = 'premiere'
+)
 def query_mysql_executor(query):
-    
-    with mysql.connector.connect(
-        host ='localhost',
-        user = 'root',
-        password = '8551649',
-        database = 'premiere'
-        ) as conn:
+    result = None
+    try:
         with conn.cursor() as cursor:
             cursor.execute(query)
-            return cursor.fetchall()
-
+            result = cursor.fetchall()
+        return result
+    except Exception as e:
+        raise Exception('Query failed %s', e)
+    
 #1. For each order. list the order number and order date along with the
 #   number and name of the customer that placed the order.
 query = """SELECT orderNum, orderDate, orders.customerNum, customerName

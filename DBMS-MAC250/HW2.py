@@ -6,17 +6,11 @@ conn = mysql.connector.connect(
             database = 'company'
         )
 
-def query_mysql_executor(query):
+def query_mysql_executor(query, conn):
     try:
-        with mysql.connector.connect(
-            host = 'localhost',
-            user = 'root',
-            password = '8551649',
-            database = 'company'
-        ) as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(query)
-                return cursor.fetchall()
+	with conn.cursor() as cursor:
+		cursor.execute(query)
+	return cursor.fetchall()
     except Exception as e:
         raise Exception('Query failed %s', e)
 

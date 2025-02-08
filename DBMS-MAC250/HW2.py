@@ -45,7 +45,7 @@ query3 = """
                             WHERE f_name = 'Franklin'
                             AND l_name = 'Wong');
         """
-result3 = query_mysql_executor(query3)
+result3 = query_mysql_executor(query3, conn=conn)
 print(f"#3: {result3}")
 # d) For each project, list the project name and the total hours per week (by all employees) spent on that project. 
 query4 = """
@@ -54,14 +54,14 @@ query4 = """
         WHERE p.p_num = w.p_num
         GROUP BY p_name;"""
 
-result4 = query_mysql_executor(query4)
+result4 = query_mysql_executor(query4, conn=conn)
 print(f"#4: {result4}")
 # e) For each department, retrieve the department name and the average salary of all employees working in that department.
 query5 = """SELECT d_name, AVG(salary) as avg_salary
             FROM department d, employee e
             WHERE d.d_num = e.d_num
             GROUP BY d_name;""" 
-result5 = query_mysql_executor(query5)
+result5 = query_mysql_executor(query5, conn=conn)
 print(f"#5: {result5}")   
 # f) Retrieve the name of employees who work on EVERY project. 
 query6 = """SELECT f_name, m_name, l_name AS name
@@ -69,12 +69,12 @@ query6 = """SELECT f_name, m_name, l_name AS name
             WHERE e.e_ssn =(SELECT e_ssn FROM works_on GROUP BY e_ssn HAVING COUNT(p_num) = (
 		        SELECT COUNT(p_num) FROM project));"""
 
-result6 = query_mysql_executor(query6)
+result6 = query_mysql_executor(query6, conn=conn)
 print(f"#6: {result6}")
 #g) Retrieve the average salary of all female employees. 
 query7 ="""SELECT AVG(salary) FROM employee
             WHERE sex = 'M';"""
-result7 = query_mysql_executor(query7)
+result7 = query_mysql_executor(query7, conn=conn)
 print(f"#7: {result7}")
 # h) Find the names and addresses of all eemployees who work on at least one project located in Houston, 
 # but whose department has no location in Houston. 
@@ -87,7 +87,7 @@ query8 = """SELECT f_name, m_name, l_name, address
             AND p.p_location = 'HOUSTON'
             AND d.d_location != 'HOUSTON'
             GROUP BY f_name, m_name, l_name, address;"""
-result8 = query_mysql_executor(query8)
+result8 = query_mysql_executor(query8, conn=conn)
 print(f"#8: {result8}")
 # i) List the last names of all department managers who have no dependents.
 query9 = """SELECT l_name
@@ -96,5 +96,8 @@ query9 = """SELECT l_name
             (SELECT mgr_ssn FROM department
              WHERE mgr_ssn NOT IN
                 (SELECT e_ssn FROM dependent));"""
-result9 = query_mysql_executor(query9)
+result9 = query_mysql_executor(query9, conn=conn)
 print(f"#9: {result9}")
+
+if conn:
+	conn.close()

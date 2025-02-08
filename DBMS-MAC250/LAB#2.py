@@ -101,3 +101,6 @@ query = """SELECT o.orderNum, orderDate
 print('#14')
 result14 = query_mysql_executor(query=query, conn=conn)
 print(result14)
+
+if conn:
+    conn.close()

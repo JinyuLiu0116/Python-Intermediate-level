@@ -19,14 +19,22 @@ cursor = conn.cursor()
 #             state CHAR(2),
 #             zipcode CHAR(5));"""
 
-query = """CREATE TABLE patients(
-            p_code CHAR(5) PRIMARY KEY,
-            p_name CHAR(30),
-            ins_code CHAR(5),
-            address_line1 CHAR(30),
-            address_line2 CHAR(30),
+# query = """CREATE TABLE patients(
+#             p_code CHAR(5) PRIMARY KEY,
+#             p_name CHAR(30),
+#             ins_code CHAR(5),
+#             address_line1 CHAR(30),
+#             address_line2 CHAR(30),
+#             city CHAR(30),
+#             state CHAR(2),
+#             zipcode CHAR(5),
+#             FOREIGN KEY(ins_code) REFERENCES ins(ins_code));"""
+
+query = """CREATE TABLE mds(
+            mds_code CHAR(5) PRIMARY KEY,
+            mds_name CHAR(30),
+            address CHAR(30),
             city CHAR(30),
             state CHAR(2),
-            zipcode CHAR(5),
-            FOREIGN KEY(ins_code) REFERENCES ins(ins_code));"""
+            zipcode CHAR(5));"""
 cursor.execute(query)

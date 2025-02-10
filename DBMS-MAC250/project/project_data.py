@@ -30,6 +30,13 @@ query2 = """INSERT INTO patients VALUES
             ('P6','Richard Liu','AHS','60-60 60th st','Apt 6F','Flushing','NY','11106');"""
 query_mysql_executor(query=query2,conn=conn)
 
+query3 = """INSERT INTO mds VALUES
+            ('M1','Dr.Anthony Liu','41-41 44th Ave','Longisland City','NY','11101'),
+            ('M2','Dr.Jack Liu','62-62 45th Ave','longisland City','NY','11101'),
+            ('M3','Dr.Jane Liu','112-26 37th Ave','Elmhurst','NY','11104'),
+            ('M4','Dr.Louis Liu','100-30 Main st','Flushing','NY','11106'),
+            ('M5','Dr.Kate Liu','122-40 Main st','Flushing','NY','11106');"""
+query_mysql_executor(query=query3,conn=conn)
 
 if conn:
     conn.close()

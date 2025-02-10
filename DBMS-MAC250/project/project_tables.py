@@ -54,8 +54,10 @@ query5 = """CREATE TABLE treatments(
             mds_code CHAR(5),
             mp_code CHAR(5),
             date DATE,
-            PRIMARY KEY(p_code, mds_code, mp_code));"""
+            PRIMARY KEY(p_code, mds_code, mp_code, date),
+            FOREIGN KEY(p_code) REFERENCES patients(p_code),
+            FOREIGN KEY(mds_code) REFERENCES mds(mds_code),
+            FOREIGN KEY(mp_code) REFERENCES medical(mp_code));"""
 print(f"#5 {query_mysql_executor(query=query5,conn=conn)}")
-
 if conn:
     conn.close()

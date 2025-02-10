@@ -11,11 +11,22 @@ cursor = conn.cursor()
 
 # query ="""CREATE DATABASE doctor;"""
 # cursor.execute(query)
-query = """CREATE TABLE ins(
-            ins_code CHAR(5) PRIMARY KEY,
-            ins_name CHAR(30),
-            address CHAR(30),
+# query = """CREATE TABLE ins(
+#             ins_code CHAR(5) PRIMARY KEY,
+#             ins_name CHAR(30),
+#             address CHAR(30),
+#             city CHAR(30),
+#             state CHAR(2),
+#             zipcode CHAR(5));"""
+
+query = """CREATE TABLE patients(
+            p_code CHAR(5) PRIMARY KEY,
+            p_name CHAR(30),
+            ins_code CHAR(5),
+            address_line1 CHAR(30),
+            address_line2 CHAR(30),
             city CHAR(30),
             state CHAR(2),
-            zipcode CHAR(5));"""
+            zipcode CHAR(5),
+            FOREIGN KEY(ins_code) REFERENCES ins(ins_code));"""
 cursor.execute(query)

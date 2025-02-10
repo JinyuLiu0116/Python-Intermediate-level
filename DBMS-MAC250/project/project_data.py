@@ -38,5 +38,16 @@ query3 = """INSERT INTO mds VALUES
             ('M5','Dr.Kate Liu','122-40 Main st','Flushing','NY','11106');"""
 query_mysql_executor(query=query3,conn=conn)
 
+query4 = """INSERT INTO medical VALUES
+            ('1111','Throat culture',1.11),
+            ('2222','Routine blood test',2.22),
+            ('3333','Ingrown toenail removal',3.33),
+            ('4444','Fill a cavity',4.44),
+            ('5555','Dental x-ray',5.55),
+            ('6666','Dental cleaning',6.66),
+            ('7777','Nose bleed treatment',7.77),
+            ('8888','Splinter removal',8.88);"""
+query_mysql_executor(query=query4,conn=conn)
+
 if conn:
     conn.close()

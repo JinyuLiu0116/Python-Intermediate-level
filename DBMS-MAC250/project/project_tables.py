@@ -38,8 +38,15 @@ cursor = conn.cursor()
 #             state CHAR(2),
 #             zipcode CHAR(5));"""
 
-query = """CREATE TABLE medical(
-            mp_code CHAR(5) PRIMARY KEY,
-            description CHAR(30),
-            price DECIMAL(6,2));"""
+# query = """CREATE TABLE medical(
+#             mp_code CHAR(5) PRIMARY KEY,
+#             description CHAR(30),
+#             price DECIMAL(6,2));"""
+
+query = """CREATE TABLE treatments(
+            p_code CHAR(5),
+            mds_code CHAR(5),
+            mp_code CHAR(5),
+            date DATE,
+            PRIMARY KEY(p_code, mds_code, mp_code));"""
 cursor.execute(query)

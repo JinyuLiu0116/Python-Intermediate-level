@@ -16,3 +16,7 @@ def query_mysql_executor(query, conn):
         return result
     except Exception as e:
         print(f"Query failed at {e}")
+
+#Print all INS records for State = “NY” 
+query = """SELECT * FROM ins WHERE state = 'NY';"""
+print(f"#1: {query_mysql_executor(query=query,conn=conn)}")

@@ -31,3 +31,10 @@ query3 = """SELECT p_name FROM patients WHERE p_code IN
                     (SELECT MAX(t_count) FROM (SELECT COUNT(p_code) AS t_count 
                         FROM treatments GROUP BY p_code)AS subquery));"""
 print(f"#3: {query_mysql_executor(query=query3,conn=conn)}")
+
+#Print the name of the patient that cost the most money (i.e. sum of all treatments costs was highest)
+query4 = """SELECT DISTINCT p_name FROM patients p, treatments t, medical m
+            WHERE p.p_code = t.p_code
+            AND t.mp_code = (SELECT mp_code FROM medical WHERE price = (SELECT MAX(price) FROM medical));"""
+print(f"#4: {query_mysql_executor(query=query4,conn=conn)}")
+

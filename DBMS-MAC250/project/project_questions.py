@@ -51,3 +51,15 @@ query6 = """SELECT i.ins_name, i.ins_code, sum(m.price)
             GROUP BY i.ins_code
             ORDER BY sum(m.price) DESC LIMIT 1"""
 print(f"#6: {query_mysql_executor(query=query6,conn=conn)}")
+
+query7 = """SELECT md.mds_name, md.mds_code, SUM(m.price)
+            FROM mds md, patients p, treatments t, medical m
+            WHERE imd.mds_code = t.mds_code
+            AND p.p_code = t.p_code
+            AND t.mp_code = m.mp_code
+            GROUP BY imd.mds_code
+            ORDER BY sum(m.price) DESC LIMIT 1"""
+print(f"#7: {query_mysql_executor(query=query7,conn=conn)}")
+
+if conn:
+    conn.close()

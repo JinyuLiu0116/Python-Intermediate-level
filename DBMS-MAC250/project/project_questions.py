@@ -20,3 +20,7 @@ def query_mysql_executor(query, conn):
 #Print all INS records for State = “NY” 
 query = """SELECT * FROM ins WHERE state = 'NY';"""
 print(f"#1: {query_mysql_executor(query=query,conn=conn)}")
+
+#Print the cpt (Mp_code) record that has the highest price
+query2 = """SELECT * FROM medical WHERE price = (SELECT MAX(price) FROM medical);"""
+print(f"#2: {query_mysql_executor(query=query2,conn=conn)}")

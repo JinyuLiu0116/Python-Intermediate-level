@@ -38,3 +38,6 @@ query4 = """SELECT DISTINCT p_name FROM patients p, treatments t, medical m
             AND t.mp_code = (SELECT mp_code FROM medical WHERE price = (SELECT MAX(price) FROM medical));"""
 print(f"#4: {query_mysql_executor(query=query4,conn=conn)}")
 
+#Print the name of the patient that did not have treatment 11111 
+query5 = """SELECT p_name FROM patients WHERE p_code IN (SELECT p_code FROM treatments WHERE mp_code !='1111');"""
+print(f"#5: {query_mysql_executor(query=query5,conn=conn)}")

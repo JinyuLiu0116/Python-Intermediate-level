@@ -52,6 +52,7 @@ query6 = """SELECT i.ins_name, i.ins_code, sum(m.price)
             ORDER BY sum(m.price) DESC LIMIT 1"""
 print(f"#6: {query_mysql_executor(query=query6,conn=conn)}")
 
+#Print the name of the MD that prescribed the treatments that cost the most money. 
 query7 = """SELECT md.mds_name, md.mds_code, SUM(m.price)
             FROM mds md, patients p, treatments t, medical m
             WHERE imd.mds_code = t.mds_code

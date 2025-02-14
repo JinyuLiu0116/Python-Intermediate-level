@@ -63,3 +63,11 @@ print(f"#8_2: {query_mysql_executor(query=query8_2, conn=conn)}")
 #9.In the nonappliance table, increase the length of the description column to 30 characters
 query9 = """ALTERT TABLE nonappliance MODIFY description CHAR(30);"""
 print(f"#9: {query_mysql_executor(query=query9, conn=conn)}")
+
+#10.Remove the nonappliance table from the premiere products database
+query10 = """DROP TABLE nonappliance;"""
+print(f"#10: {query_mysql_executor(query=query10, conn=conn)}")
+
+
+if conn:
+    conn.close()

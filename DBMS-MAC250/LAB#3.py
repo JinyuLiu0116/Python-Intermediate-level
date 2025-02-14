@@ -37,3 +37,9 @@ print(f"#3: {query_mysql_executor(query=query3, conn=conn)}")
 #4 In the noappliance table, increase the price of each item in item class ‘SG’ by three percent.
 query4 = """UPDATE nonappliance SET price = price * 1.05 WHERE class = 'SG';"""
 print(f"#4: {query_mysql_executor(query=query4, conn=conn)}")
+
+#5.Add the following part to the nonappliance table: part number: TL92; 
+#description: Edge Trimmer, number of units on hand: 11, class HW, and price 29.95
+query5 = """INSERT INTO nonappliance VALUES
+            ('TL92', 'Edge Trimmer', 11, 'HW', 29.95);"""
+print(f"#5: {query_mysql_executor(query=query5, conn=conn)}")

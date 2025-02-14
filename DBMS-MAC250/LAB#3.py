@@ -51,3 +51,11 @@ print(f"#6: {query_mysql_executor(query=query6, conn=conn)}")
 #7.In the nonappliance table, change the class for part FD21 to null
 query7 = """UPDATE nonappliance SET class = NULL WHERE partNum = 'FD21';"""
 print(f"#7: {query_mysql_executor(query=query7, conn=conn)}")
+
+#8.Add a column named ON_HAND_VALUE to the nonappliance table. The on-hand value is a seven-digit number with
+# two decimal places that represents the product of the number of units on hand and the price. Then set all 
+# values of ON_HAND_VALUE to ON_HAND * PRICE.
+query8_1 = """ALTER TABLE nonappliance ADD COLUMN on_hand_value DECIMAL(7,2);"""
+print(f"#8_1: {query_mysql_executor(query=query8_1, conn=conn)}")
+query8_2 = """UPDATE nonappliance SET on_hand_value = onHand * price;"""
+print(f"#8_2: {query_mysql_executor(query=query8_2, conn=conn)}")

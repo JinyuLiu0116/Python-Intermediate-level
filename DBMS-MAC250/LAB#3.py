@@ -28,3 +28,8 @@ print(f"#1: {query_mysql_executor(query=query1, conn=conn)}")
 # and unti price from the PART table for each part that is not in item class AP
 query2 = """INSERT INTO nonappliance SELECT partNum, description, onHand, class, price FROM part WHERE class != 'AP';"""
 print(f"#2: {query_mysql_executor(query=query2, conn=conn)}")
+
+#In the nonappliance table, change the description oof part number AT94 to “Steam Iron”
+query3 = """UPDATE nonappliance SET description = 'Steam Iron'
+            WHERE partNum ='AT94';"""
+print(f"#3: {query_mysql_executor(query=query3, conn=conn)}")

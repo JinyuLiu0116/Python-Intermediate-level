@@ -59,3 +59,7 @@ query8_1 = """ALTER TABLE nonappliance ADD COLUMN on_hand_value DECIMAL(7,2);"""
 print(f"#8_1: {query_mysql_executor(query=query8_1, conn=conn)}")
 query8_2 = """UPDATE nonappliance SET on_hand_value = onHand * price;"""
 print(f"#8_2: {query_mysql_executor(query=query8_2, conn=conn)}")
+
+#9.In the nonappliance table, increase the length of the description column to 30 characters
+query9 = """ALTERT TABLE nonappliance MODIFY description CHAR(30);"""
+print(f"#9: {query_mysql_executor(query=query9, conn=conn)}")

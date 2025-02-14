@@ -23,3 +23,8 @@ query1 = """CREATE TABLE nonappliance(
             class CHAR(2),
             price DECIMAL(6,2));"""
 print(f"#1: {query_mysql_executor(query=query1, conn=conn)}")
+
+# Insert into the nonappliance table the part number, part description, number of units on hand, item class,
+# and unti price from the PART table for each part that is not in item class AP
+query2 = """INSERT INTO nonappliance SELECT partNum, description, onHand, class, price FROM part WHERE class != 'AP';"""
+print(f"#2: {query_mysql_executor(query=query2, conn=conn)}")

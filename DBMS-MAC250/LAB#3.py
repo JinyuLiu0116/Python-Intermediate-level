@@ -47,3 +47,7 @@ print(f"#5: {query_mysql_executor(query=query5, conn=conn)}")
 #6.Delete every part in the nonappliance table for which the class is ‘SG’
 query6 = """DELETE FROM nonappliance WHERE class = 'SG';"""
 print(f"#6: {query_mysql_executor(query=query6, conn=conn)}")
+
+#7.In the nonappliance table, change the class for part FD21 to null
+query7 = """UPDATE nonappliance SET class = NULL WHERE partNum = 'FD21';"""
+print(f"#7: {query_mysql_executor(query=query7, conn=conn)}")

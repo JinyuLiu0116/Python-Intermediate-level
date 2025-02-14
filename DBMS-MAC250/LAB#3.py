@@ -43,3 +43,7 @@ print(f"#4: {query_mysql_executor(query=query4, conn=conn)}")
 query5 = """INSERT INTO nonappliance VALUES
             ('TL92', 'Edge Trimmer', 11, 'HW', 29.95);"""
 print(f"#5: {query_mysql_executor(query=query5, conn=conn)}")
+
+#6.Delete every part in the nonappliance table for which the class is ‘SG’
+query6 = """DELETE FROM nonappliance WHERE class = 'SG';"""
+print(f"#6: {query_mysql_executor(query=query6, conn=conn)}")

@@ -13,16 +13,16 @@ def query_mysql_executor(query, conn):
             cursor.execute(query)
             result = cursor.fetchall()
         return result
-    expect:
+    except:
         print(f"query is failed: {query}")
     
-query = """CREATE TABLE department(
+query1 = """CREATE TABLE department(
             d_name CHAR(30),
             d_num CHAR(1) PRIMARY KEY,
             mgr_ssn CHAR(9),
             mgr_start_date DATE);"""
 
-query = """CREATE TABLE employee(
+query2 = """CREATE TABLE employee(
             f_name CHAR(30),
             m_name CHAR(1),
             l_name CHAR(30),
@@ -36,18 +36,18 @@ query = """CREATE TABLE employee(
             FOREIGN KEY(d_num) REFERENCES department(d_num)
             );"""
 
-query ="""
+query3 ="""
         CREATE TABLE dept_locations(
         d_num  CHAR(1),
         d_location CHAR(15),
         PRIMARY KEY(d_num, d_location));"""
 
-query = """
+query4 = """
         ALTER TABLE dept_locations
         ADD CONSTRAINT fk_location_department
         FOREIGN KEY(d_num) REFERENCES department(d_num);"""
 
-query = """
+query5 = """
         CREATE TABLE project(
         p_name CHAR(30),
         p_num CHAR(2) PRIMARY KEY,
@@ -55,21 +55,21 @@ query = """
         d_num CHAR(1),
         FOREIGN KEY(d_num) REFERENCES dept_locations(d_num));"""
 
-query = """
+query6 = """
         CREATE TABLE works_on(
         e_ssn CHAR(9),
         p_num CHAR(2),
         hours DECIMAL(4,2),
         PRIMARY KEY(e_ssn, p_num));"""
 
-query = """
+query7 = """
         ALTER TABLE works_on
         ADD CONSTRAINT fk_works_e
         FOREIGN KEY(e_ssn) REFERENCES employee(e_ssn),
         ADD CONSTRAINT fk_works_project
         FOREIGN KEY(p_num) REFERENCES project(p_num);"""
 
-query = """
+query8 = """
         CREATE TABLE dependent(
         e_ssn CHAR(9),
         dependent_name CHAR(15),
@@ -80,13 +80,6 @@ query = """
         FOREIGN KEY(e_ssn) REFERENCES employee(e_ssn)
         );"""
 
-cursor = conn.cursor()
-cursor.execute(query)
 
-
-
-
-if cursor:
-    cursor.close()
 if conn:
     conn.close()

@@ -7,6 +7,14 @@ conn = mysql.connector.connect(
 )
 
 def query_mysql_executor(query, conn):
+    result = None
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute(query)
+            result = cursor.fetchall()
+        return result
+    expect:
+        print(f"query is failed: {query}")
     
 query = """CREATE TABLE department(
             d_name CHAR(30),

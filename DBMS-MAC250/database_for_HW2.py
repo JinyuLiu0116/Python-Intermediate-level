@@ -1,9 +1,13 @@
+import mysql.connector
 conn = mysql.connector.connect(
     host = 'localhost',
     user = 'root',
     password = '8551649',
     database = 'company'
 )
+
+def query_mysql_executor(query, conn):
+    
 query = """CREATE TABLE department(
             d_name CHAR(30),
             d_num CHAR(1) PRIMARY KEY,

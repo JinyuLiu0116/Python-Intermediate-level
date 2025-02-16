@@ -93,7 +93,8 @@ query_mysql_executor(query=query10,conn=conn)
 
 #  11. What command would delete the Books table from the Henry Books database? (Do not delete the 
 # book table).
-
+query11 = """DROP TABLE book;"""
+query_mysql_executor(query=query11,conn=conn)
 
 #  12. Assume the Book table contains a column called TotalOnHand that represents the total units on 
 # hand in all branches for that book. Following the style shown in the text, write the code for the 

@@ -62,7 +62,8 @@ query5 = """DROP INDEX bookIndex3 ON book;"""
 query_mysql_executor(query=query5,conn=conn)
 
 #  6. Specify the integrity constraint that the price of any book must be less than $90.
-
+query6 = """ALTER TABLE book ADD CONSTRAINT ck_price CHECK(price < 90);"""
+query_mysql_executor(query=query5,conn=conn)
 
 #  7. Ensure that the following are foreign keys (that is, specify referential integrity) within the Henry 
 # Books database,

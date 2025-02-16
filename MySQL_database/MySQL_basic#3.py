@@ -7,7 +7,7 @@ conn = mysql.connector.connect(
     database = "practice"
 )
 
-def query_executor(query, conn):
+def query_excutor(query, conn):
     result = None
     try:
         with conn.cursor() as cursor:
@@ -18,14 +18,13 @@ def query_executor(query, conn):
         print(f"query failed at: {e}")
 
 query1 = "SELECT * FROM movie"
-result = query_exexutor(query=query1, conn=conn)
+result = query_excutor(query=query1, conn=conn)
 for row in result:
     print(row)
 
-cursor.execute("SELECT title FROM movie")
-result_title=cursor.fetchall()
-print("The title of movies:")
-for row in result_title:
+query2 = "SELECT title FROM movie"
+result = query_excutor(query=query2, conn=conn)
+for row in result:
     print(row)
 
 cursor.execute("SELECT director FROM movie")
@@ -46,5 +45,4 @@ print("The title and year of movies:")
 for row in result_T_Y:
     print(row)
 
-cursor.close()
 conn.close()

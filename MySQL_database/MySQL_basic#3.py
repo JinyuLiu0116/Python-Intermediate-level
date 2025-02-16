@@ -8,7 +8,13 @@ conn = mysql.connector.connect(
 )
 
 def query_executor(query, conn):
-    
+    result = None
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute(query)
+            result = cursor.fetchall()
+    except Exception as e:
+        
 cursor = conn.cursor()
 
 cursor.execute("SELECT * FROM movie")

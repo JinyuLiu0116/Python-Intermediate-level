@@ -36,7 +36,11 @@ query_mysql_executor(query=query2,conn=conn)
 
 #  3. Create a view named Book Inventory. It consists of the book code and the total number of units of 
 # the book on hand at any branch. Display the data in the view.
-
+query3 = """CREATE VIEW book_inventory AS SELECT b.book_code, SUM(i.on_hand) AS total_units
+            FROM book b, inventory i
+            WHERE b.book_code = i.book_code
+            GROUP BY i.book_code;"""
+query_mysql_executor(query=query3,conn=conn)
 
 #  4. Create the following indexes. If it is necessary to name the index in your DB<S, use the indicated 
 # name.

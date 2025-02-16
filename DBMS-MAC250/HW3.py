@@ -46,15 +46,17 @@ query_mysql_executor(query=query3,conn=conn)
 # name.
 #  a. Create an index named BookIndex1 on the Publisher Name field in the Publisher 
 # table.
-
+query4_1 = """CREATE INDEX bookIndex1 ON publisher(publisher_name);"""
+query_mysql_executor(query=query4_1,conn=conn)
 
 #  b. Create an index named BookIndex2 on the Type field in the Book table.
-
+query4_2 = """CREATE INDEX bookIndex2 ON book(type);"""
+query_mysql_executor(query=query4_2,conn=conn)
 
 #  c. Create an index named BookIndex3 on the Type and Price fields in the Book table 
 # and list the prices in descending order.
-
-
+query4_3 = """CREATE INDEX bookIndex3 ON book(type, price);"""
+query_mysql_executor(query=query4_3,conn=conn)
 #  5. Drop the BookIndex3 index.
 
 

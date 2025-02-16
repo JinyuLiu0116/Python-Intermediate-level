@@ -27,10 +27,9 @@ result = query_excutor(query=query2, conn=conn)
 for row in result:
     print(row)
 
-cursor.execute("SELECT director FROM movie")
-result_director=cursor.fetchall()
-print("The director of movies:")
-for row in result_director:
+query3 ="SELECT director FROM movie"
+result = query_excutor(query=query3, conn=conn)
+for row in result:
     print(row)
 
 cursor.execute("SELECT title,director FROM movie")

@@ -28,7 +28,11 @@ query_mysql_executor(query=query1,conn=conn)
 
 #  2. Create a view named Paperback. It consists of the book code, book title, publisher name, and 
 # book price for every book that is available in paperback. Display the data in the view.
-
+query2 = """CREATE VIEW paperback AS SELECT b.book_code, b.title, p.publisher_name, b.price
+            FROM book b, publisher p
+            WHERE b.publisher_code = p.publisher_code
+            AND b.paperback = 'Y';"""
+query_mysql_executor(query=query2,conn=conn)
 
 #  3. Create a view named Book Inventory. It consists of the book code and the total number of units of 
 # the book on hand at any branch. Display the data in the view.

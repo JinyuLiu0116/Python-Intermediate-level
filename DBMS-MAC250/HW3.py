@@ -80,7 +80,8 @@ query7_c = """SHOW KEYS FROM wrote;"""
 query_mysql_executor(query=query7_c,conn=conn)
 
 #  8. Add to the Book table a new character field named Classic that is one character in length.
-
+query8 = """ALTER TABLE book ADD COLUMN classic CHAR(1);"""
+query_mysql_executor(query=query8,conn=conn)
 
 #  9. Change the Classic field in the Book table to Y for the book titled The Grapes of Wrath.
 

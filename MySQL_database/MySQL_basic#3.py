@@ -17,10 +17,9 @@ def query_executor(query, conn):
     except Exception as e:
         print(f"query failed at: {e}")
 
-
-cursor.execute("SELECT * FROM movie")
-result_table=cursor.fetchall()
-for row in result_table:
+query1 = "SELECT * FROM movie"
+result = query_exexutor(query=query1, conn=conn)
+for row in result:
     print(row)
 
 cursor.execute("SELECT title FROM movie")

@@ -84,7 +84,8 @@ query8 = """ALTER TABLE book ADD COLUMN classic CHAR(1);"""
 query_mysql_executor(query=query8,conn=conn)
 
 #  9. Change the Classic field in the Book table to Y for the book titled The Grapes of Wrath.
-
+query9 = """UPDATE book SET classic = 'Y' WHERE title = 'The Grapes of Wrath';"""
+query_mysql_executor(query=query9,conn=conn)
 
 #  10. Change the length of the Title field in the Book table to 60.
 

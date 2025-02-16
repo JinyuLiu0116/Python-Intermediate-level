@@ -88,7 +88,8 @@ query9 = """UPDATE book SET classic = 'Y' WHERE title = 'The Grapes of Wrath';""
 query_mysql_executor(query=query9,conn=conn)
 
 #  10. Change the length of the Title field in the Book table to 60.
-
+query10 = """ALTER TABLE book MODIFY title CHAR(60);"""
+query_mysql_executor(query=query10,conn=conn)
 
 #  11. What command would delete the Books table from the Henry Books database? (Do not delete the 
 # book table).

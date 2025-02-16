@@ -58,7 +58,8 @@ query_mysql_executor(query=query4_2,conn=conn)
 query4_3 = """CREATE INDEX bookIndex3 ON book(type, price);"""
 query_mysql_executor(query=query4_3,conn=conn)
 #  5. Drop the BookIndex3 index.
-
+query5 = """DROP INDEX bookIndex3 ON book;"""
+query_mysql_executor(query=query5,conn=conn)
 
 #  6. Specify the integrity constraint that the price of any book must be less than $90.
 

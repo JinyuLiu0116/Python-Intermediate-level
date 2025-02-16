@@ -68,13 +68,16 @@ query_mysql_executor(query=query5,conn=conn)
 #  7. Ensure that the following are foreign keys (that is, specify referential integrity) within the Henry 
 # Books database,
 #  a. PublisherCode is a foreign key in the Book table.
-
+query7_a = """SHOW KEYS FROM book;"""
+query_mysql_executor(query=query7_a,conn=conn)
 
 #  b. BranchNum is a foreign key in the Inventory table.
-
+query7_b = """SHOW KEYS FROM inventory;"""
+query_mysql_executor(query=query7_b,conn=conn)
 
 #  c. AuthorNum is a foreign key in the Wrote table.
-
+query7_c = """SHOW KEYS FROM wrote;"""
+query_mysql_executor(query=query7_c,conn=conn)
 
 #  8. Add to the Book table a new character field named Classic that is one character in length.
 

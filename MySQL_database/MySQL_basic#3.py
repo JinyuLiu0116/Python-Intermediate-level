@@ -27,20 +27,19 @@ result = query_excutor(query=query2, conn=conn)
 for row in result:
     print(row)
 
-query3 ="SELECT director FROM movie"
+query3 = "SELECT director FROM movie"
 result = query_excutor(query=query3, conn=conn)
 for row in result:
     print(row)
 
-query4 ="SELECT title,director FROM movie"
+query4 = "SELECT title,director FROM movie"
 result = query_excutor(query=query4, conn=conn)
 for row in result:
     print(row)
 
-cursor.execute("SELECT titile,year FROM movie")
-result_T_Y=cursor.fetchall()
-print("The title and year of movies:")
-for row in result_T_Y:
+query5 = "SELECT titile,year FROM movie")
+result = query_excutor(query=query5, conn=conn)
+for row in result:
     print(row)
 
 conn.close()

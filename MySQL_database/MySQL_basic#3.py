@@ -7,6 +7,8 @@ conn = mysql.connector.connect(
     database = "practice"
 )
 
+def query_executor(query, conn):
+    
 cursor = conn.cursor()
 
 cursor.execute("SELECT * FROM movie")

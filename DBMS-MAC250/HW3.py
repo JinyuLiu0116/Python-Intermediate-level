@@ -7,8 +7,16 @@ conn = mysql.connector.connect(
     database = 'henry_books'
 )
 
-if conn:
-    print('connection has been created')
+def query_mysql_executor(query, conn):
+    result = None
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute(query)
+            result = cursor.fetchall()
+            for row in result:
+                print(f"{row}")
+    except Exception as e:
+        print(f"query failed: {e}")
 
 # 1. Create a view named Penguin Books. It consists of the book code, book title, book type, and book 
 # price for every book published by Penguin USA. Display the data in the view.
@@ -78,3 +86,8 @@ if conn:
 
 #  c. When deleting a row in the Inventory table, subtract the OnHand value from the 
 # TotalOnHand value for the appropriate book
+
+
+
+if conn:
+    conn.close()

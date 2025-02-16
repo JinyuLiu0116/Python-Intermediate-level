@@ -20,7 +20,11 @@ def query_mysql_executor(query, conn):
 
 # 1. Create a view named Penguin Books. It consists of the book code, book title, book type, and book 
 # price for every book published by Penguin USA. Display the data in the view.
-
+query1 = """CREATE VIEW penguin_books AS SELECT b.book_code, b.title, b.type, b.price
+            FROM book b, publisher p
+            WHERE b.publisher_code = p.publisher_code
+            AND p.publisher_name = 'Penguin USA';"""
+query_mysql_executor(query=query1,conn=conn)
 
 #  2. Create a view named Paperback. It consists of the book code, book title, publisher name, and 
 # book price for every book that is available in paperback. Display the data in the view.

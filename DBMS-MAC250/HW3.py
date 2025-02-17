@@ -111,7 +111,13 @@ query_mysql_executor(query=query12_a,conn=conn)
 
 #  b. When updating a row in the Inventory table, add the difference between the new OnHand 
 # value and the OnHand value for the appropriate book.
-
+query12_b = """CREATE TRIGGER totalOnHand_update
+                BEFORE UPDATE ON inventory
+                FOR EACH ROW
+                UPDATE book
+                SET totalOnHand = TotalOnHand + (NEW.on_hand - OLD.on_hand)
+                WHERE book.book_code = NEW.book_code;"""
+query_mysql_executor(query=query12_b,conn=conn)
 
 #  c. When deleting a row in the Inventory table, subtract the OnHand value from the 
 # TotalOnHand value for the appropriate book

@@ -121,7 +121,13 @@ query_mysql_executor(query=query12_b,conn=conn)
 
 #  c. When deleting a row in the Inventory table, subtract the OnHand value from the 
 # TotalOnHand value for the appropriate book
-
+query12_c = """CREATE TRIGGER inventory_delete
+                AFTER DELETE ON inventory
+                FOR EACH ROW
+                UPDATE book
+                SET totalOnHand = totalOnHand - OLD.on_hand
+                WHERE book.book_code = OLD.book_code;"""
+query_mysql_executor(query=query12_c,conn=conn)
 
 
 if conn:

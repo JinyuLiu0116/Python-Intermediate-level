@@ -27,7 +27,11 @@ query1_a = """CREATE VIEW major_customer
                 WHERE creditLimit <= 10000;"""
 query_mysql_executor(query= query1_a, conn=conn)
 
-
+# b.Write and execute the command to retrieve the customer number and name of each customer 
+# in the major_curstomer view with a balance that exceeds the credit limit.
+query1_b = """SELECT customerNum, customerName FROM major_customer
+                WHERE balance > creditLimit;"""
+query_mysql_executor(query= query1_b, conn=conn)
 
 if conn:
     conn.close()

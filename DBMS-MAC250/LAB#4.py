@@ -39,5 +39,15 @@ query1_c = """UPDATE major_customer
                 WHERE customerNum = '148';"""
 query_mysql_executor(query= query1_c, conn=conn)
 
+# 2 Create a view named part_order. It consists of the par number, description, price, order number, 
+# order date, number ordered, and quoted price for all order lines currently on file.
+# a.	Write and execute the CREATE VIEW command to create the part_order view.
+query2_a = """CREATE VIEW part_order
+                AS SELECT p.partNum, p.description, p.price, o.orderNum, o.orderDate, ol.numOrdered, ol.quotedPrice
+                FROM part p, orders o, orderline ol
+                WHERE p.partNum = ol.partNum
+                AND ol.orderNum = o.orderNum;"""
+query_mysql_executor(query= query2_a, conn=conn)
+
 if conn:
     conn.close()

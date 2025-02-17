@@ -56,5 +56,10 @@ query2_b = """SELECT partNum, description, orderNum, quotedPrice
                 WHERE quotedPrice > 100;"""
 query_mysql_executor(query= query2_b, conn=conn)
 
+#c.	Write and execute the query that the DBMS actually executes.
+query2_c = """UPDATE part_order SET quotedPrice = 100
+                WHERE partNum = 'AT94';"""
+query_mysql_executor(query= query2_c, conn=conn)
+
 if conn:
     conn.close()

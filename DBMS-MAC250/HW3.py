@@ -101,7 +101,13 @@ query_mysql_executor(query=query11,conn=conn)
 # following triggers.
 #  a. When inserting a row in the Inventory table, add the OnHand value to the TotalOnHand 
 # value for the appropriate book.
-
+query12_a = """CREATE TRIGGER totalOnHnad_update
+                AFTER INSERT ON inventory
+                FOR EACH ROW
+                UPDATE book
+                SET totalOnHand = TotalOnHand + on_hand
+                WHERE book.book_code = inventory.book_code;"""
+query_mysql_executor(query=query12_a,conn=conn)
 
 #  b. When updating a row in the Inventory table, add the difference between the new OnHand 
 # value and the OnHand value for the appropriate book.

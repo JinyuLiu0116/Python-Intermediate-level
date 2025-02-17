@@ -33,5 +33,11 @@ query1_b = """SELECT customerNum, customerName FROM major_customer
                 WHERE balance > creditLimit;"""
 query_mysql_executor(query= query1_b, conn=conn)
 
+#c.	Write and execute the query that the DBMS actually executes.
+query1_c = """UPDATE major_customer 
+                SET creditLimit = 10000
+                WHERE customerNum = '148';"""
+query_mysql_executor(query= query1_c, conn=conn)
+
 if conn:
     conn.close()

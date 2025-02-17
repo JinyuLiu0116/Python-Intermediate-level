@@ -49,5 +49,12 @@ query2_a = """CREATE VIEW part_order
                 AND ol.orderNum = o.orderNum;"""
 query_mysql_executor(query= query2_a, conn=conn)
 
+# b.	Write and execute the command to retrieve the part number, description, order number, and quoted price for all orders 
+# in the part_order view for parts with quoted prices that exceed $100.
+query2_b = """SELECT partNum, description, orderNum, quotedPrice
+                FROM part_order
+                WHERE quotedPrice > 100;"""
+query_mysql_executor(query= query2_b, conn=conn)
+
 if conn:
     conn.close()

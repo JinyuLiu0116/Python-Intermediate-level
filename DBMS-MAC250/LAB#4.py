@@ -156,6 +156,14 @@ query_mysql_executor(query= query6_d, conn=conn)
 query7 = """DROP INDEX part_index3 ON part;"""
 query_mysql_executor(query= query7, conn=conn)
 
+#8 Write the commands to obtain the following information from the system catalog. 
+# Do not execute these commands unless your instructor asks you to do so.
+#a.	List every table that contains a column named customer_num
+query8_a = """SELECT TABLE_NAME
+              FROM INFORMATION_SCHEMA.COLLUMNS
+              WHERE COLUMN_NAME = 'customerNum';"""
+query_mysql_executor(query= query8_a, conn=conn)
+
 
 if conn:
     conn.close()

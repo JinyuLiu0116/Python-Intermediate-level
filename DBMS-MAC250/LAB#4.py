@@ -61,5 +61,16 @@ query2_c = """UPDATE part_order SET quotedPrice = 100
                 WHERE partNum = 'AT94';"""
 query_mysql_executor(query= query2_c, conn=conn)
 
+# 3 Create a view named order_total. It consists of the order number and order total for each 
+# order currently on file. (The order total is the sum of the number of units ordered multiplied by 
+# the quoted price on each order line for each order.) Sort the row by order number. Use total_amount 
+# as the name for the order total.
+# a.	Write and execute the CREATE VIEW command to create the order_total view.
+query3_a = """CREATE VIEW order_total
+                AS SELECT orderNum, numOrdered * quotedPrice AS total_amount
+                FROM orderline
+                ORDER BY orderNum;"""
+query_mysql_executor(query= query3_a, conn=conn)
+
 if conn:
     conn.close()

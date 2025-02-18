@@ -85,5 +85,11 @@ query3_c = """UPDATE order_total
                 WHERE orderNum = '21610';"""
 query_mysql_executor(query= query3_c, conn=conn)
 
+#Write, but do not execute, the commands to grant th following privileges:
+#a.	User Ashton must be able to retrieve data from the part table
+query4_a = """CREATE USER 'Ashton'@'localhost' IDENTIFIED BY '123456';
+              GRANT SELECT ON part TO 'Ashton'@'localhost';"""
+query_mysql_executor(query= query4_a, conn=conn)
+
 if conn:
     conn.close()

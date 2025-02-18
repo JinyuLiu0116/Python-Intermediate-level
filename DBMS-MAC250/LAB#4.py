@@ -128,5 +128,10 @@ query4_h = """CREATE USER 'Grinstead'@'localhost' IDENTIFIED BY '112233';
               GRANT ALL ON orders TO 'Grinstead'@'localhost';"""
 query_mysql_executor(query= query4_h, conn=conn)
 
+#Write, but do not execute the command to revoke all privileges from user Ashton.
+query5 = """REVOKE SELECT ON part FROM 'Ashton'@'localhost';"""
+query_mysql_executor(query= query5, conn=conn)
+
+
 if conn:
     conn.close()

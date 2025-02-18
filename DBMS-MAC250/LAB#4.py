@@ -79,5 +79,11 @@ query3_b = """SELECT orderNum, total_amount
                 WHERE total_amount > 1000;"""
 query_mysql_executor(query= query3_b, conn=conn)
 
+# c.	Write and execute the query that the DBMS actually executes.
+query3_c = """UPDATE order_total
+                SET total_amount = 1100
+                WHERE orderNum = '21610';"""
+query_mysql_executor(query= query3_c, conn=conn)
+
 if conn:
     conn.close()

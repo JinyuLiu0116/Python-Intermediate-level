@@ -168,6 +168,12 @@ query_mysql_executor(query= query8_a, conn=conn)
 query8_b = """SHOW COLUMNS FROM part;"""
 query_mysql_executor(query= query8_b, conn=conn)
 
+#9 Add the order_num column as a foreign key in the order_line table
+query9 = """ALTER TABLE orderline
+            ADD CONSTRAIN fk_orderNum
+            FOREIGN KEY(orderNum) REFERENCES orders(orderNum);"""
+query_mysql_executor(query= query9, conn=conn)
+
 
 if conn:
     conn.close()

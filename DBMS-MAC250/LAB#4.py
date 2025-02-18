@@ -113,5 +113,10 @@ query4_e = """GRANT SELECT(customerNum, customerName, street, city, state, zip)
                 TO PUBLIC;"""
 query_mysql_executor(query= query4_e, conn=conn)
 
+#f.	User Perez must be able to create an index on the orders table
+query4_f = """CREATE USER 'Perez'@'localhost' IDENTIFIED BY '4321';
+              GRANT INDEX ON orders TO 'Perez'@'localhost';"""
+query_mysql_executor(query= query4_f, conn=conn)
+
 if conn:
     conn.close()

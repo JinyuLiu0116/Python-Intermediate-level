@@ -174,6 +174,13 @@ query9 = """ALTER TABLE orderline
             FOREIGN KEY(orderNum) REFERENCES orders(orderNum);"""
 query_mysql_executor(query= query9, conn=conn)
 
+#10 Ensure that the only values entered into the credit_limit column are 5000, 7500, 10000, and 15000.
+query10 = """ALTER TABLE customer
+             ADD CONSTRAINT ck_creditlimit
+             CHECK(creditlimit IN(5000,7500,10000,15000));"""
+query_mysql_executor(query= query10, conn=conn)
+
+
 
 if conn:
     conn.close()

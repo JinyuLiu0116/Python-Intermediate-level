@@ -102,5 +102,10 @@ query4_c = """CREATE USER 'James'@'localhost' IDENTIFIED BY '654321';
               GRANT SELECT, UPDATE ON part TO 'James'@'localhost';"""
 query_mysql_executor(query= query4_c, conn=conn)
 
+#d.	User Danielson must be able to delete customers.
+query4_d = """CREATE USER 'Danielson'@'localhost' IDENTIFIED BY '54321';
+              GRANT SELECT, DELETE ON customer TO 'Danielson'@'localhost';"""
+query_mysql_executor(query= query4_d, conn=conn)
+
 if conn:
     conn.close()

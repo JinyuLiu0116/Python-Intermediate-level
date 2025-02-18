@@ -97,6 +97,10 @@ query4_b = """CREATE USER 'Kelly'@'localhost' IDENTIFIED BY '12345',
               GRANT SELECT, INSERT ON orderline TO Kelly'@'localhost', 'Morgan'@'localhost';"""
 query_mysql_executor(query= query4_b, conn=conn)
 
+#c.	User James must be able to change the price for all parts
+query4_c = """CREATE USER 'James'@'localhost' IDENTIFIED BY '654321';
+              GRANT SELECT, UPDATE ON part TO 'James'@'localhost';"""
+query_mysql_executor(query= query4_c, conn=conn)
 
 if conn:
     conn.close()

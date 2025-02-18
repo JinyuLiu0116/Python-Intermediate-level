@@ -164,6 +164,10 @@ query8_a = """SELECT TABLE_NAME
               WHERE COLUMN_NAME = 'customerNum';"""
 query_mysql_executor(query= query8_a, conn=conn)
 
+#b.	List every column in the part table and lits associated data type.
+query8_b = """SHOW COLUMNS FROM part;"""
+query_mysql_executor(query= query8_b, conn=conn)
+
 
 if conn:
     conn.close()

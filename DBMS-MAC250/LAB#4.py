@@ -107,5 +107,11 @@ query4_d = """CREATE USER 'Danielson'@'localhost' IDENTIFIED BY '54321';
               GRANT SELECT, DELETE ON customer TO 'Danielson'@'localhost';"""
 query_mysql_executor(query= query4_d, conn=conn)
 
+#e.	All users must ba able to retrieve each customer’s number, name, street, city, state, and zip code.
+query4_e = """GRANT SELECT(customerNum, customerName, street, city, state, zip)
+                ON customer
+                TO PUBLIC;"""
+query_mysql_executor(query= query4_e, conn=conn)
+
 if conn:
     conn.close()

@@ -118,5 +118,10 @@ query4_f = """CREATE USER 'Perez'@'localhost' IDENTIFIED BY '4321';
               GRANT INDEX ON orders TO 'Perez'@'localhost';"""
 query_mysql_executor(query= query4_f, conn=conn)
 
+#g.	User Washington must be able to change the structure of the part table
+query4_g = """CREATE USER 'Washington'@'localhost' IDENTIFIED BY '321';
+              GRANT ALTER ON part TO 'Washington'@'localhost';"""
+query_mysql_executor(query= query4_g, conn=conn)
+
 if conn:
     conn.close()

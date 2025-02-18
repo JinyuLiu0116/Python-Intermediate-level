@@ -123,5 +123,10 @@ query4_g = """CREATE USER 'Washington'@'localhost' IDENTIFIED BY '321';
               GRANT ALTER ON part TO 'Washington'@'localhost';"""
 query_mysql_executor(query= query4_g, conn=conn)
 
+#h.	User Grinstead must have all privileges on the orders table
+query4_h = """CREATE USER 'Grinstead'@'localhost' IDENTIFIED BY '112233';
+              GRANT ALL ON orders TO 'Grinstead'@'localhost';"""
+query_mysql_executor(query= query4_h, conn=conn)
+
 if conn:
     conn.close()

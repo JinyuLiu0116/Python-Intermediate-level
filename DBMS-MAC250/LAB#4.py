@@ -132,6 +132,30 @@ query_mysql_executor(query= query4_h, conn=conn)
 query5 = """REVOKE SELECT ON part FROM 'Ashton'@'localhost';"""
 query_mysql_executor(query= query5, conn=conn)
 
+#6 Perform the following task:
+#a.	Create an index named part_index1 on the part_num column in the order_line table
+query6_a = """CREATE INDEX part_index1 ON orderline(partNum);"""
+query_mysql_executor(query= query6_a, conn=conn)
+
+#b.	Create an index named part_index2 on the class column in the part table.
+query6_b = """CREATE INDEX part_index2 ON part(class);"""
+query_mysql_executor(query= query6_b, conn=conn)
+
+#c.	Create an index named part_index3 on the class and warhouse columns in 
+# the part table. 
+query6_c = """CREATE INDEX part_index3 ON part(class, warehouse);"""
+query_mysql_executor(query= query6_c, conn=conn)
+
+#d.	Create an index named part_index4 on the class and warehouse columns in 
+# the part table. List item classes in descending order.
+query6_d = """CREATE INDEX part_index4 ON part(class, warehouse);
+             SELECT class FROM part ORDER BY class DESC;"""
+query_mysql_executor(query= query6_d, conn=conn)
+
+#7 Delete the index named part_index3
+query7 = """DROP INDEX part_index3 ON part;"""
+query_mysql_executor(query= query7, conn=conn)
+
 
 if conn:
     conn.close()

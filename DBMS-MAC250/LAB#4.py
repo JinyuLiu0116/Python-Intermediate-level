@@ -91,5 +91,12 @@ query4_a = """CREATE USER 'Ashton'@'localhost' IDENTIFIED BY '123456';
               GRANT SELECT ON part TO 'Ashton'@'localhost';"""
 query_mysql_executor(query= query4_a, conn=conn)
 
+#b.	Users Kelly and Morgan must be able to add new orders and order lines.
+query4_b = """CREATE USER 'Kelly'@'localhost' IDENTIFIED BY '12345',
+                          'Morgan'@'localhost' IDENTIFIED BY '1234';
+              GRANT SELECT, INSERT ON orderline TO Kelly'@'localhost', 'Morgan'@'localhost';"""
+query_mysql_executor(query= query4_b, conn=conn)
+
+
 if conn:
     conn.close()

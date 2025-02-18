@@ -72,5 +72,12 @@ query3_a = """CREATE VIEW order_total
                 ORDER BY orderNum;"""
 query_mysql_executor(query= query3_a, conn=conn)
 
+# b.	Write and execute the command to retrieve the order number and order total for 
+# only those orders totaling more than $1000
+query3_b = """SELECT orderNum, total_amount
+                FROM order_total
+                WHERE total_amount > 1000;"""
+query_mysql_executor(query= query3_b, conn=conn)
+
 if conn:
     conn.close()

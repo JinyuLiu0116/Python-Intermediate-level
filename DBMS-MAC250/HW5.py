@@ -22,6 +22,14 @@ with open('data.csv', mode= 'w', newline='') as file:
     writer.writeheader()
     writer.writerows(data)
 
+def query_mysql_executor(query, conn):
+    result = None
+    with conn.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchall()
+    for row in result:
+        print(row)
+
 
 if conn:
     conn.close()

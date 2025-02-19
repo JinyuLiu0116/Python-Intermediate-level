@@ -30,6 +30,13 @@ def query_mysql_executor(query, conn):
     for row in result:
         print(row)
 
+#Create a table: Ensure the table structure matches the CSV data format.
+query1 = """CREATE TABLE people (
+	        id INT PRIMARY KEY,
+            name VARCHAR(225),
+            age INT);"""
+query_mysql_executor(query=query1, conn=conn)
+
 
 if conn:
     conn.close()

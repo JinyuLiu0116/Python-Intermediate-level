@@ -37,6 +37,15 @@ query1 = """CREATE TABLE people (
             age INT);"""
 query_mysql_executor(query=query1, conn=conn)
 
+#Upload CSV data: Use the LOAD DATA INFILE statement to import the CSV data into the specific table.
+query2 = """LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/data.csv'
+            INTO TABLE company.people
+            FIELDS TERMINATED BY ','
+            ENCLOSED BY '"'
+            LINES TERMINATED BY '\n'
+            IGNORE 1 ROWS;"""
+query_mysql_executor(query=query2, conn=conn)
+
 
 if conn:
     conn.close()

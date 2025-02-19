@@ -46,6 +46,11 @@ query2 = """LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/data
             IGNORE 1 ROWS;"""
 query_mysql_executor(query=query2, conn=conn)
 
+# Task 4: Backup and Restore Database 
+# 1.	Backup the database: Use the mysqldump utility to create a backup of the database. 
+command = 'cd C:\Program Files\MySQL\MySQL Workbench 8.0\ '
+command = 'mysqldump -u root -p company > "C:\Users\ojin0\Downloads\company.sql"'
+
 
 if conn:
     conn.close()

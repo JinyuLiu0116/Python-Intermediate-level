@@ -51,6 +51,9 @@ query_mysql_executor(query=query2, conn=conn)
 command = 'cd C:\Program Files\MySQL\MySQL Workbench 8.0\ '
 command = 'mysqldump -u root -p company > "C:\Users\ojin0\Downloads\company.sql"'
 
+# 2.	Restore the database: Use the mysql utility to restore the database from the backup file.
+command = 'mysql -u root -p company < "C:\Users\ojin0\Downloads\company.sql"'
+
 
 if conn:
     conn.close()

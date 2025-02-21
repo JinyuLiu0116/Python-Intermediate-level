@@ -129,6 +129,18 @@ query12_c = """CREATE TRIGGER inventory_delete
                 WHERE book.book_code = OLD.book_code;"""
 query_mysql_executor(query=query12_c,conn=conn)
 
+#create a trigger by using condition
+query13 = """DELIMITER //
+            CREATE TRIGGER check_age
+            BEFORE INSERT ON people
+            FOR EACH ROW
+            BEGIN
+	            IF NEW.age < 0
+	            THEN SET NEW.age = 0;
+	            END IF;
+            END//
+            DELIMITER ;"""
+query_mysql_executor(query=query13,conn=conn)
 
 if conn:
     conn.close()

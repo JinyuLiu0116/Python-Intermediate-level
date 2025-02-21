@@ -30,13 +30,7 @@ def query_mysql_executor(query, conn):
     for row in result:
         print(row)
 
-#create user1
-query = """CREATE USER 'user1'@'localhost' IDENTIFIED BY '123456';
-            GRANT ALL ON company.* TO 'user1'@'localhost';"""
 
-#create user2
-query = """CREATE USER 'user2'@'localhost' IDENTIFIED BY '12345';
-            GRANT SELECT, UPDATE ON company.employee TO 'user2'@'localhost';"""
 
 #Create a table: Ensure the table structure matches the CSV data format.
 query1 = """CREATE TABLE people (

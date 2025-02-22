@@ -8,8 +8,13 @@ conn = mysql.connector.connect(
 )
 
 def query_mysql_executor(query, conn):
-    
-cursor = conn.cursor()
+    result = None
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute(query)
+            result = cursor.fetchall()
+        for row in result:
+            print(row)
 
 cursor.execute("SELECT id, title FROM movie WHERE id = 6")
 result1 = cursor.fetchall()

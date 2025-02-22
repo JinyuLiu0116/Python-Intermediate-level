@@ -20,15 +20,15 @@ query1 = ("SELECT id, title FROM movie WHERE id = 6")
 query_mysql_executor(query=query1, conn=conn)
 
 
-cursor.execute("SELECT year, title FROMR movie WHERE year BETWEEN 2000 AND 2010")
+query2 = ("SELECT year, title FROMR movie WHERE year BETWEEN 2000 AND 2010")
 query_mysql_executor(query=query2, conn=conn)
 
     
-cursor.execute("SELECT year, title FROM movie WHERE year < 2000 or year > 2010")
+query3 = ("SELECT year, title FROM movie WHERE year < 2000 or year > 2010")
 query_mysql_executor(query=query3, conn=conn)
 
 
-cursor.execute("SELECT title, year FROM movie WHERE year <= 2003")
+query4 = ("SELECT title, year FROM movie WHERE year <= 2003")
 query_mysql_executor(query=query4, conn=conn)
 
 

@@ -42,7 +42,8 @@ cursor.execute("SELECT * FROM movie")
 result = cursor.fetchall()
 for i in result:
     print(i)
-    
-cursor.close()
-conn.close()
 
+if cursor:
+    cursor.close()
+if conn:
+    conn.close()

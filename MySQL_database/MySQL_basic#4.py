@@ -16,20 +16,20 @@ def query_mysql_executor(query, conn):
         for row in result:
             print(row)
 
-cursor.execute("SELECT id, title FROM movie WHERE id = 6")
-result1 = cursor.fetchall()
+query1 = ("SELECT id, title FROM movie WHERE id = 6")
+query_mysql_executor(query=query1, conn=conn)
 
 
 cursor.execute("SELECT year, title FROMR movie WHERE year BETWEEN 2000 AND 2010")
-result2 = cusor.fetchall()
+query_mysql_executor(query=query2, conn=conn)
 
     
 cursor.execute("SELECT year, title FROM movie WHERE year < 2000 or year > 2010")
-result3 = cursor.fetchall()
+query_mysql_executor(query=query3, conn=conn)
 
 
 cursor.execute("SELECT title, year FROM movie WHERE year <= 2003")
-result4 = cursor.fetchall()
+query_mysql_executor(query=query4, conn=conn)
 
 
 if conn:

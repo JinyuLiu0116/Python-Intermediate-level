@@ -7,6 +7,8 @@ conn = mysql.connector.connect(
     database = "practicebase"
 )
 
+def query_mysql_executor(query, conn):
+    
 cursor = conn.cursor()
 
 cursor.execute("SELECT id, title FROM movie WHERE id = 6")

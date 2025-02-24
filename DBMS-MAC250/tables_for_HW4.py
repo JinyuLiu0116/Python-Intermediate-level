@@ -57,5 +57,14 @@ table4 = """CREATE TABLE author(
             au_birthYear CHAR(4));"""
 query_mysql_executor(query=table4, conn=conn)
 
+table5 = """CREATE TABLE writes(
+            bookNum CHAR(4),
+            au_id CHAR(3),
+            PRIMARY KEY(bookNum, au_id),
+            FOREIGN KEY(bookNum) REFERENCES book(bookNum),
+            FOREIGN KEY(au_id) REFERENCES author(au_id));"""
+query_mysql_executor(query=table5, conn=conn)
+
+
 if conn:
     conn.close()

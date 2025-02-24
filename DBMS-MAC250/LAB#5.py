@@ -69,3 +69,14 @@ query5_b = """CREATE TRIGGER different_commission
                 WHERE repNum = NEW.repNum;"""
 query_mysql_executor(query=query5_b, conn=conn)
 query_update_data = """UPDATE customer SET balance = 3000 WHERE customerNum = '111';"""
+
+# c. When deleting a customer, subtract the balance multiplied by the sales rep’s commission 
+# rate from the commission for the corresponding sales rep.
+query5_c = """CREATE TRIGGER multiply_commission
+                AFTER DELETE ON customer
+                FOR EACH ROW
+                UPDATE rep
+                SET commission = commission - OLD.balance * rate
+                WHERE repNum = OLD.repNum;"""
+query_mysql_executor(query=query5_c, conn=conn)
+query_delete_data = """DELETE FROM customer WHERE customerNum = '111';"""

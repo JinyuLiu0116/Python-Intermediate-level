@@ -65,3 +65,24 @@ INSERT INTO PATRON VALUES ('1242', 'Mario', 'King', 'Student');
 INSERT INTO PATRON VALUES ('1243', 'Roberto', 'Kennedy', 'Student');
 INSERT INTO PATRON VALUES ('1244', 'Leon', 'Richmond', 'Student');
 """
+data3 = """INSERT INTO BOOK VALUES ('5235', 'Beginner''s Guide to JAVA', '2012', 59.95, 'Programming', NULL);
+INSERT INTO BOOK VALUES ('5236', 'Database in the Cloud', '2012', 79.95, 'Cloud', NULL);
+INSERT INTO BOOK VALUES ('5237', 'Mastering the database environment', '2013', 89.95, 'Database', NULL);
+INSERT INTO BOOK VALUES ('5238', 'Conceptual Programming', '2013', 59.95, 'Programming', 1229);
+INSERT INTO BOOK VALUES ('5239', 'J++ in Mobile Apps', '2013', 49.95, 'Programming', NULL);
+INSERT INTO BOOK VALUES ('5240', 'iOS Programming', '2013', 79.95, 'Programming', 1212);
+INSERT INTO BOOK VALUES ('5241', 'JAVA First Steps', '2013', 49.95, 'Programming', NULL);
+INSERT INTO BOOK VALUES ('5242', 'C# in Middleware Deployment', '2013', 59.95, 'Middleware', 1228);
+INSERT INTO BOOK VALUES ('5243', 'DATABASES in Theory', '2013', 129.95, 'Database', NULL);
+INSERT INTO BOOK VALUES ('5244', 'Cloud-based Mobile Applications', '2013', 69.95, 'Cloud', NULL);
+INSERT INTO BOOK VALUES ('5245', 'The Golden Road to Platform independence', '2014', 119.95, 'Middleware', NULL);
+INSERT INTO BOOK VALUES ('5246', 'Capture the Cloud', '2014', 69.95, 'Cloud', 1172);
+INSERT INTO BOOK VALUES ('5247', 'Shining Through the Cloud: Sun Programming', '2014', 109.95, 'Programming', NULL);
+INSERT INTO BOOK VALUES ('5248', 'What You Always Wanted to Know About Database, But Were Afraid to Ask', '2014', 49.95, 'Database', NULL);
+INSERT INTO BOOK VALUES ('5249', 'Starlight Applications', '2014', 69.95, 'Cloud', 1207);
+INSERT INTO BOOK VALUES ('5250', 'Reengineering the Middle Tier', '2014', 89.95, 'Middleware', NULL);
+INSERT INTO BOOK VALUES ('5251', 'Thoughts on Revitalizing Ruby', '2014', 59.95, 'Programming', NULL);
+INSERT INTO BOOK VALUES ('5252', 'Beyond the Database Veil', '2014', 69.95, 'Database', 1229);
+INSERT INTO BOOK VALUES ('5253', 'Virtual Programming for Virtual Environments', '2014', 79.95, 'Programming', NULL);
+INSERT INTO BOOK VALUES ('5254', 'Coding Style for Maintenance', '2015', 49.95, 'Programming', NULL);
+"""

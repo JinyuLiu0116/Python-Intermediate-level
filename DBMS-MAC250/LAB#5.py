@@ -18,3 +18,12 @@ def query_mysql_executor(query, conn):
         print("--------------------------------------------------------------------")
     except Exception as e:
         print(f"query failed: {e}")
+
+# Use the Premiere Products database to complete the following exercises.
+# If directed to do so by your instructor, use the information provided with
+# Exercises to print your output
+
+# 1.List the part number and description for all parts. The part descriptions
+# should appear in uppercase letters.
+query1 = """SELECT partNum, UPPER(description) FROM part;"""
+query_mysql_executor(query=query1, conn=conn)

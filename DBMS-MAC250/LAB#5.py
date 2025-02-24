@@ -58,3 +58,14 @@ query5_a = """CREATE TRIGGER sales_rep
                 WHERE repNum = NEW.repNum;"""
 query_mysql_executor(query=query5_a, conn=conn)
 query_insert_data = """INSERT INTO customer VALUES ('111','JoJo Seriey','1111 Berger','New York City','NY','11111',5000,5000,20);"""
+
+# b. When updating a customer, add the difference between the new balance and the old balance 
+# multipled by the sales rep’s commission rate to the commission for the corresponding sales rep.
+query5_b = """CREATE TRIGGER different_commission
+                AFTER UPDATE ON customer
+                FOR EACH ROW
+                UPDATE rep
+                SET commission = commission + ((NEW.balance - OLD.balance) * rate)
+                WHERE repNum = NEW.repNum;"""
+query_mysql_executor(query=query5_b, conn=conn)
+query_update_data = """UPDATE customer SET balance = 3000 WHERE customerNum = '111';"""

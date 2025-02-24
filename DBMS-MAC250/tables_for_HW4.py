@@ -39,5 +39,16 @@ table2 = """CREATE TABLE book(
             FOREIGN KEY(pat_id) REFERENCES patron(pat_id));"""
 query_mysql_executor(query=table2, conn=conn)
 
+table3 = """CREATE TABLE checkout(
+            checkNum CHAR(5) PRIMARY KEY,
+            bookNum CHAR(4),
+            pat_id CHAR(4),
+            check_out_date DATE,
+            check_due_date DATE,
+            check_in_date DATE,
+            FOREIGN KEY(bookNum) REFERENCES book(bookNum),
+            FOREIGN KEY(pat_id) REFERENCES patron(pat_id));"""
+query_mysql_executor(query=table3, conn=conn)
+
 if conn:
     conn.close()

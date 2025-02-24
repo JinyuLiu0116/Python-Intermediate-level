@@ -18,6 +18,16 @@ def query_mysql_executor(query, conn):
         print('-----------------------------------------------')
     except Exception as e:
         print(f"query failed: {e}")
+
+database = """CREATE DATABASE library;"""
+query_mysql_executor(query=database, conn=conn)
+
+table1 = """CREATE TABLE patron(
+            pat_id CHAR(4) PRIMARY KEY,
+            pat_FName CHAR(15),
+            pat_LName CHAR(15),
+            pat_type CHAR(15));"""
+query_mysql_executor(query=table1, conn=conn)
         
 if conn:
     conn.close()

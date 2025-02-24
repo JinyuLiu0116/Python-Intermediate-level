@@ -46,3 +46,15 @@ query4 = """SELECT o.orderNum, c.customerNum, c.customerName, DATE_ADD(o.orderDa
             FROM customer c, orders o
             WHERE c.customerNum = o.customerNum;"""
 query_mysql_executor(query=query4, conn=conn)
+
+# 5.Write the code for the following triggers in PL/SQL or T-SQL following the style shown in the text:
+# a. When adding a customer, add the customer’s balance times the sales rep’s commission rate to 
+# the commission for the corresponding sales rep.
+query5_a = """CREATE TRIGGER sales_rep
+                AFTER INSERT ON customer
+                FOR EACH ROW
+                UPDATE rep
+                SET commission = commission + (NEW.balance * rate)
+                WHERE repNum = NEW.repNum;"""
+query_mysql_executor(query=query5_a, conn=conn)
+query_insert_data = """INSERT INTO customer VALUES ('111','JoJo Seriey','1111 Berger','New York City','NY','11111',5000,5000,20);"""

@@ -28,6 +28,16 @@ table1 = """CREATE TABLE patron(
             pat_LName CHAR(15),
             pat_type CHAR(15));"""
 query_mysql_executor(query=table1, conn=conn)
-        
+
+table2 = """CREATE TABLE book(
+            bookNum CHAR(4) PRIMARY KEY,
+            book_title CHAR(100).
+            book_year CHAR(4),
+            book_cost DECIMAL(6,2),
+            book_subject CHAR(15),
+            pat_id CHAR(4),
+            FOREIGN KEY(pat_id) REFERENCES patron(pat_id));"""
+query_mysql_executor(query=table2, conn=conn)
+
 if conn:
     conn.close()

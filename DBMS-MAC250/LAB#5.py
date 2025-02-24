@@ -80,3 +80,7 @@ query5_c = """CREATE TRIGGER multiply_commission
                 WHERE repNum = OLD.repNum;"""
 query_mysql_executor(query=query5_c, conn=conn)
 query_delete_data = """DELETE FROM customer WHERE customerNum = '111';"""
+
+
+if conn:
+    conn.close()

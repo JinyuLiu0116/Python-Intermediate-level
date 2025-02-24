@@ -38,3 +38,11 @@ query_mysql_executor(query=query2, conn=conn)
 # should be rounded to the nearest dollar.
 query3 = """SELECT customerNum, customerName, ROUND(balance) FROM customer;"""
 query_mysql_executor(query=query3, conn=conn)
+
+# 4.Premiere Products is running a promotion that is valid for up to 20 days after
+# an order is placed. List the order number, customer number, customer name,
+# and the promotion date for each order. The promotion date is 20d days after the order was placed.
+query4 = """SELECT o.orderNum, c.customerNum, c.customerName, DATE_ADD(o.orderDate, INTERVAL 20 DAY) AS promotionDate
+            FROM customer c, orders o
+            WHERE c.customerNum = o.customerNum;"""
+query_mysql_executor(query=query4, conn=conn)

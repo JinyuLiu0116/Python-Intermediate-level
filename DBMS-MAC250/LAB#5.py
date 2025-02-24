@@ -27,3 +27,9 @@ def query_mysql_executor(query, conn):
 # should appear in uppercase letters.
 query1 = """SELECT partNum, UPPER(description) FROM part;"""
 query_mysql_executor(query=query1, conn=conn)
+
+# 2.List the customer number and name for all customers located in the
+# city of Grove. Your query should ignore case. For example, a customer with th
+# city Grove should be included as should customers whose city is GROVE, grove, GrOvE, and so on
+query2 = """SELECT customerNum, customerName FROM customer WHERE city LIKE 'grove';"""
+query_mysql_executor(query=query2, conn=conn)

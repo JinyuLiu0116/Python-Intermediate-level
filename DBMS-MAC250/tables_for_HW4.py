@@ -50,5 +50,12 @@ table3 = """CREATE TABLE checkout(
             FOREIGN KEY(pat_id) REFERENCES patron(pat_id));"""
 query_mysql_executor(query=table3, conn=conn)
 
+table4 = """CREATE TABLE author(
+            au_id CHAR(3) PRIMARY KEY,
+            au_FName CHAR(15),
+            au_LName CHAR(15),
+            au_birthYear CHAR(4));"""
+query_mysql_executor(query=table4, conn=conn)
+
 if conn:
     conn.close()

@@ -33,3 +33,8 @@ query_mysql_executor(query=query1, conn=conn)
 # city Grove should be included as should customers whose city is GROVE, grove, GrOvE, and so on
 query2 = """SELECT customerNum, customerName FROM customer WHERE city LIKE 'grove';"""
 query_mysql_executor(query=query2, conn=conn)
+
+# 3.List the customer number, name, and balance for all customers. The balance
+# should be rounded to the nearest dollar.
+query3 = """SELECT customerNum, customerName, ROUND(balance) FROM customer;"""
+query_mysql_executor(query=query3, conn=conn)

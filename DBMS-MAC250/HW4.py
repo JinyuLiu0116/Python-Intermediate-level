@@ -71,3 +71,10 @@ query8 = """SELECT bookNum, COUNT(bookNum) AS 'Times Checked Out'
             GROUP BY bookNum
             ORDER BY COUNT(bookNum) DESC;"""
 query_mysql_execute(query=query8,conn=conn)
+
+# 9. Write a query to display the average number of days a book is kept during a checkout.
+query9 = """SELECT ROUND(AVG(DATEDIFF(check_in_date, check_out_date)), 2) 
+            AS 'Average Days Kept'
+            FROM checkout
+            WHERE check_in_date IS NOT NULL;"""
+query_mysql_execute(query=query9,conn=conn)

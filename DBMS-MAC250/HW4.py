@@ -33,3 +33,11 @@ query3 = """SELECT bookNum, book_title, book_year
             WHERE book_year > '2013'
             AND book_subject = 'Programming';"""
 query_mysql_execute(query=query3,conn=conn)
+
+# 4. Write a query to display the book number, title, year of publication, subject, and cost 
+# for all books that are on the subjects of “Middleware” or “Cloud,” and that cost more than $70
+query4 = """SELECT bookNum, book_title, book_year, book_subject, book_cost
+            FROM book
+            WHERE book_subject IN ('Middleware', 'Cloud')
+            AND book_cost > 70;""" # WHERE (book_subject = 'Middleware' OR book_subject = 'Cloud')
+query_mysql_execute(query=query4,conn=conn)

@@ -78,3 +78,15 @@ query9 = """SELECT ROUND(AVG(DATEDIFF(check_in_date, check_out_date)), 2)
             FROM checkout
             WHERE check_in_date IS NOT NULL;"""
 query_mysql_execute(query=query9,conn=conn)
+
+# 10. Write a query to display the patron ID and the average number of days that patron keeps 
+# books during a checkout. Limit the results to only patrons that have at least 3 checkouts. 
+# Sort the results in descending order by the average days the book is kept.
+query10 = """SELECT p.pat_id, ROUND(AVG(DATEDIFF(c.check_in_date, c.check_out_date)), 2)
+            AS 'Average Days Kept'
+            FROM patron p, checkout c
+            WHERE p.pat_id = c.pat_id
+            GROUP BY c.pat_id
+            HAVING COUNT(c.pat_id) > 3
+            ORDER BY ROUND(AVG(DATEDIFF(c.check_in_date, c.check_out_date)), 2);"""
+query_mysql_execute(query=query10,conn=conn)

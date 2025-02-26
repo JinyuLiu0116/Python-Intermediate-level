@@ -49,3 +49,9 @@ query5 = """SELECT bookNum, book_title, book_year
             WHERE book_title LIKE '%DataBase%';"""
 
 query_mysql_execute(query=query5,conn=conn)
+
+# 6. Write a query to display the author ID, first and last name of all authors whose year of birth is unknown
+query6 = """SELECT au_id, au_FName, au_LName
+            FROM author
+            WHERE au_birthYear IS NULL;"""
+query_mysql_execute(query=query6,conn=conn)

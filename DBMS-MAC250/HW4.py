@@ -90,3 +90,14 @@ query10 = """SELECT p.pat_id, ROUND(AVG(DATEDIFF(c.check_in_date, c.check_out_da
             HAVING COUNT(c.pat_id) > 3
             ORDER BY ROUND(AVG(DATEDIFF(c.check_in_date, c.check_out_date)), 2);"""
 query_mysql_execute(query=query10,conn=conn)
+
+# 11. Write a query to display the book number, title, and cost of books that have the lowest 
+# cost of any books in the system. Sort the results by book number.
+query11 = """SELECT book_title, MIN(book_cost) AS book_cost
+            FROM book
+            ORDER BY bookNum;"""
+query_mysql_execute(query=query11,conn=conn)
+
+
+if conn:
+    conn.close()

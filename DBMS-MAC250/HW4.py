@@ -55,3 +55,10 @@ query6 = """SELECT au_id, au_FName, au_LName
             FROM author
             WHERE au_birthYear IS NULL;"""
 query_mysql_execute(query=query6,conn=conn)
+
+# 7. Write a query to display the patron ID, full name (first and last), and patron type for all patrons. Sort 
+# the results by patron type, then by last name and first name. Ensure that all sorting is case insensitive
+query7 = """SELECT pat_idm, CONCAT(pat_FName, ' ', pat_LName) AS fullName, pat_type
+            FROM patron
+            ORDER BY pat_type, pat_LName, pat_FName;"""
+query_mysql_execute(query=query7,conn=conn)

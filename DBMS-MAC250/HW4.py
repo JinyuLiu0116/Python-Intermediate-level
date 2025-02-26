@@ -25,3 +25,11 @@ query_mysql_execute(query=query1,conn=conn)
 # 2. Write a query to display the checkout number, book number, and checkout date of all books checked out before April 5, 2015
 query2 = """SELECT checkNum, bookNum, check_out_date FROM checkout WHERE check_out_date < '2015-04-05';"""
 query_mysql_execute(query=query2,conn=conn)
+
+# 3. Write a query to display the book number, title, and year of publication of all books published 
+# after 2013 and on the “Programming” subject
+query3 = """SELECT bookNum, book_title, book_year
+            FROM book
+            WHERE book_year > '2013'
+            AND book_subject = 'Programming';"""
+query_mysql_execute(query=query3,conn=conn)

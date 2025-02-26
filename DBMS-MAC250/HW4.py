@@ -41,3 +41,11 @@ query4 = """SELECT bookNum, book_title, book_year, book_subject, book_cost
             WHERE book_subject IN ('Middleware', 'Cloud')
             AND book_cost > 70;""" # WHERE (book_subject = 'Middleware' OR book_subject = 'Cloud')
 query_mysql_execute(query=query4,conn=conn)
+
+# 5. Write a query to display the book number, title, and year of publication for all books that 
+# contain the word “Database” in the title, regardless of how it is capitalized
+query5 = """SELECT bookNum, book_title, book_year
+            FROM book
+            WHERE book_title LIKE '%DataBase%';"""
+
+query_mysql_execute(query=query5,conn=conn)

@@ -62,3 +62,12 @@ query7 = """SELECT pat_idm, CONCAT(pat_FName, ' ', pat_LName) AS fullName, pat_t
             FROM patron
             ORDER BY pat_type, pat_LName, pat_FName;"""
 query_mysql_execute(query=query7,conn=conn)
+
+# 8. Write a query to display the book number and the number of times each book has been checked out. Do not 
+# include books that have never been checked out.
+query8 = """SELECT bookNum, COUNT(bookNum) AS 'Times Checked Out'
+            FROM checkout
+            WHERE check_out_date IS NOT NULL
+            GROUP BY bookNum
+            ORDER BY COUNT(bookNum) DESC;"""
+query_mysql_execute(query=query8,conn=conn)
